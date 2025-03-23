@@ -1,13 +1,14 @@
 import { Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import "./../styles/contact.css";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-[#FDF5E6]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="contact-section">
+      <div className="contact-container">
         <motion.h2 
-          className="text-4xl font-serif text-center text-[#4A3728] mb-16"
+          className="contact-title"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -15,44 +16,32 @@ export default function Contact() {
           Contact Us
         </motion.h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="contact-grid">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-serif text-[#4A3728] mb-6">Get in Touch</h3>
-            <form className="space-y-6 bg-white p-6 rounded-xl shadow-lg">
+            <h3 className="contact-subtitle">Get in Touch</h3>
+            <form className="contact-form">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8B7355] focus:ring focus:ring-[#8B7355] focus:ring-opacity-50 p-2"
-                />
+                <label htmlFor="name" className="contact-label">Name</label>
+                <input type="text" id="name" className="contact-input" />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8B7355] focus:ring focus:ring-[#8B7355] focus:ring-opacity-50 p-2"
-                />
+                <label htmlFor="email" className="contact-label">Email</label>
+                <input type="email" id="email" className="contact-input" />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#8B7355] focus:ring focus:ring-[#8B7355] focus:ring-opacity-50 p-2"
-                ></textarea>
+                <label htmlFor="message" className="contact-label">Message</label>
+                <textarea id="message" rows={4} className="contact-textarea"></textarea>
               </div>
               
               <motion.button
                 type="submit"
-                className="w-full bg-[#8B7355] text-white px-8 py-3 rounded-full hover:bg-[#6F4E37] transition duration-300 shadow-lg"
+                className="contact-button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -66,30 +55,30 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-serif text-[#4A3728] mb-6">Contact Information</h3>
-            <div className="space-y-6 bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 text-[#8B7355] mr-4" />
+            <h3 className="contact-subtitle">Contact Information</h3>
+            <div className="contact-info">
+              <div className="contact-info-item">
+                <Phone className="contact-icon" />
                 <div>
-                  <h4 className="font-semibold">Phone</h4>
-                  <p className="text-gray-600">1234567890</p>
-                  <p className="text-gray-600">1234567890</p>
+                  <h4 className="contact-info-title">Phone</h4>
+                  <p className="contact-info-text">1234567890</p>
+                  <p className="contact-info-text">1234567890</p>
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <FaWhatsapp className="h-6 w-6 text-[#25D366] mr-4" /> 
+              <div className="contact-info-item">
+                <FaWhatsapp className="contact-whatsapp-icon" /> 
                 <div>
-                  <h4 className="font-semibold">WhatsApp</h4>
-                  <p className="text-gray-600">1234567890</p>
+                  <h4 className="contact-info-title">WhatsApp</h4>
+                  <p className="contact-info-text">1234567890</p>
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-[#8B7355] text-white flex items-center justify-center rounded-full mr-4 font-bold">B</div>
+              <div className="contact-info-item">
+                <div className="contact-initial">B</div>
                 <div>
-                  <h4 className="font-semibold">Contact Person</h4>
-                  <p className="text-gray-600">XXX</p>
+                  <h4 className="contact-info-title">Contact Person</h4>
+                  <p className="contact-info-text">XXX</p>
                 </div>
               </div>
             </div>
