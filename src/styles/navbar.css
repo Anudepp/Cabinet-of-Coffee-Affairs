@@ -1,0 +1,106 @@
+/* Navbar.css */
+.navbar {
+  background: #8b7355;
+  color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-text {
+  margin-left: 0.5rem;
+  font-family: serif;
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+
+.navbar-menu-item {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-menu-item:hover {
+  color: #d2b48c;
+}
+
+/* Underline effect */
+.navbar-menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #d2b48c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.navbar-menu-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Mobile Menu Button */
+.navbar-toggle {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: transform 0.3s;
+}
+
+.navbar-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .navbar-mobile-menu {
+    background: #6f4e37;
+    overflow: hidden;
+    padding: 1rem;
+  }
+}
+
+.navbar-mobile-menu-item {
+  display: block;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: transform 0.2s;
+}
+
+.navbar-mobile-menu-item:hover {
+  color: #d2b48c;
+}
