@@ -41,7 +41,7 @@ export default function About() {
 
         <div className="story-container">
           <div className="story-image">
-            <img src="https://images.unsplash.com/photo-1524350876685-274059332603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coffee plantation" />
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/452965436/DE/NM/HW/197384915/arabica-green-coffee-beans.jpg" alt="Coffee plantation" />
           </div>
           <div className="story-text">
             <h3 className="sub-heading">Our Journey</h3>
