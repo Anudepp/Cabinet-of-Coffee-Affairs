@@ -27,8 +27,7 @@ The project is built using modern web technologies:
 To set up the project locally, follow these steps:
 	1.	Clone the repository:
 
-git clone https://github.com/your-username/cca-website.git
-cd cca-website
+git clone https://github.com/Anudepp/Cabinet-of-Coffee-Affairs
 
 
 	2.	Install dependencies:
