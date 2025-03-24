@@ -1,0 +1,148 @@
+.products-section {
+  padding: 5rem 0;
+  background-color: #fdf5e6;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.products-heading {
+  font-size: 2.5rem;
+  font-family: serif;
+  text-align: center;
+  color: #4a3728;
+  margin-bottom: 3rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: #d2b48c;
+  color: #4a3728;
+}
+
+.tab-button.active {
+  background-color: #8b7355;
+  color: white;
+}
+
+/* Product Display */
+.product-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .product-display {
+    flex-direction: row;
+  }
+}
+
+.product-image {
+  width: 100%;
+  max-width: 50%;
+}
+
+.image {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+  width: 100%;
+  max-width: 50%;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+  font-size: 2rem;
+  font-family: serif;
+  color: #4a3728;
+  margin-bottom: 1rem;
+}
+
+/* Product Sections */
+.product-section {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #4a3728;
+  margin-bottom: 0.5rem;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.type-tag {
+  background-color: #8b7355;
+  color: white;
+}
+
+.grade-tag {
+  background-color: #d2b48c;
+  color: #4a3728;
+}
+
+/* Characteristics */
+.characteristics-list {
+  list-style: none;
+  padding: 0;
+}
+
+.characteristic-item {
+  display: flex;
+  align-items: center;
+  color: #4a3728;
+}
+
+.bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #8b7355;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Ideal For */
+.product-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #d2b48c;
+}
+
+.ideal-for {
+  color: #4a3728;
+  font-style: italic;
+}
