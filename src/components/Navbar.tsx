@@ -6,6 +6,15 @@ import "./../styles/navbar.css";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Smooth scroll function
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsMenuOpen(false); // Close mobile menu after click
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -13,21 +22,19 @@ export default function Navbar() {
           {/* Logo */}
           <div className="navbar-logo">
             <Coffee className="h-8 w-8" />
-            <span className="navbar-logo-text">
-              Cabinet of Coffee Affairs
-            </span>
+            <span className="navbar-logo-text">Cabinet of Coffee Affairs</span>
           </div>
 
           {/* Desktop Menu */}
           <div className="navbar-menu">
             {["Home", "About", "Products", "Contact"].map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                onClick={() => handleScroll(item.toLowerCase())}
                 className="navbar-menu-item"
               >
                 {item}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -78,14 +85,14 @@ export default function Navbar() {
           >
             <div>
               {["Home", "About", "Products", "Contact"].map((item) => (
-                <motion.a
+                <motion.button
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  onClick={() => handleScroll(item.toLowerCase())}
                   className="navbar-mobile-menu-item"
                   whileTap={{ scale: 0.95 }}
                 >
                   {item}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </motion.div>

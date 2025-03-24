@@ -104,3 +104,7 @@
 .navbar-mobile-menu-item:hover {
   color: #d2b48c;
 }
+
+html {
+  scroll-behavior: smooth;
+}
