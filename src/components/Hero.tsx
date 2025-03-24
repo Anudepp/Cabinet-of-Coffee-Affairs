@@ -18,9 +18,6 @@ export default function Hero() {
           <p className="hero-subtitle">
             Premium Coffee Exports from the World's Finest Plantations
           </p>
-          <a href="#contact" className="hero-button">
-            Get in Touch
-          </a>
         </div>
       </div>
     </div>
