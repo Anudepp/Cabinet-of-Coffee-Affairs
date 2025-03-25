@@ -2,7 +2,7 @@
 
 📌 **Project Overview**
 
-Cabinet of Coffee Affairs (CCA) is a React-based website designed for B2B exporters looking for premium-quality coffee beans sourced directly from farmers. The platform provides detailed insights into different coffee varieties, their characteristics, and grades, enabling exporters to make informed decisions.
+Cabinet of Coffee Affairs (CCA) is a React-based website  for premium-quality coffee beans sourced directly from farmers. The platform provides detailed insights into different coffee varieties, their characteristics, and grades, enabling exporters to make informed decisions.
 
 ---
 
@@ -11,7 +11,6 @@ Cabinet of Coffee Affairs (CCA) is a React-based website designed for B2B export
 - **Smooth Navigation** – Intuitive and responsive navigation for a seamless user experience.
 - **Smooth Scrolling** – Enhanced scrolling for better accessibility and user engagement.
 - **Animated UI Elements** – Leveraging Framer Motion for engaging animations.
-- **Navigation Menu** – A collapsible menu for easy access to the Contact and About pages.
 - **Product Showcase** – Interactive product tabs for exploring Arabica and Robusta coffee beans.
 
 ---
