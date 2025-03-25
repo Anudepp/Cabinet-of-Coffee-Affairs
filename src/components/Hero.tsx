@@ -14,7 +14,8 @@ export default function Hero() {
             alt="Cabinet of Coffee Affairs Logo" 
             className="hero-logo"
           />
-          <h1 className="hero-title">From Farm to Globe</h1>
+          <h1 className="hero-title">Cabinet of Coffee Affairs</h1>
+          <p className="hero-tagline">From Farm to Globe</p> 
           <p className="hero-subtitle">
             Premium Coffee Exports from the World's Finest Plantations
           </p>
