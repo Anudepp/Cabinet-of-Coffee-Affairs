@@ -19,6 +19,9 @@ export default function Hero() {
           <p className="hero-subtitle">
             Premium Coffee Exports from the World's Finest Plantations
           </p>
+
+          {/* Motivational Quote */}
+          <p className="hero-quote">"Success is no accident."</p>
         </div>
       </div>
     </div>
