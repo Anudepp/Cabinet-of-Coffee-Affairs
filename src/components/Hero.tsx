@@ -1,12 +1,12 @@
 export default function Hero() {
   return (
     <div id="home" className="relative h-screen flex items-center justify-center text-center">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')] bg-cover bg-center">
+      {/* Background Image with Overlay - NOW USING LOCAL IMAGE */}
+      <div className="absolute inset-0 bg-[url('/heroimage.png')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Content (UNCHANGED) */}
       <div className="relative max-w-4xl mx-auto px-4 text-white">
         {/* Logo */}
         <img 
@@ -23,14 +23,13 @@ export default function Hero() {
 
         {/* Tagline (Animated Fade & Slide-up) */}
         <p className="opacity-0 animate-fadeInUp delay-300 text-[#d2b48c] text-3xl italic font-cursive">
-  From Farm to Globe
-</p>
+          From Farm to Globe
+        </p>
 
         {/* Subtitle (Animated Fade & Slide-up) */}
         <p className="text-[#d2b48c] text-lg md:text-xl mt-1 opacity-0 animate-fadeInUp delay-500">
           Premium Coffee Exports from the World's Finest Plantations
         </p>
-
       </div>
     </div>
   );
