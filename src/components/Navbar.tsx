@@ -20,10 +20,14 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* Hamburger Menu Button for Mobile */}
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6 transition-all duration-300 transform rotate-180" />
+              ) : (
+                <Menu className="h-6 w-6 transition-all duration-300" />
+              )}
             </button>
 
             {/* Logo */}
@@ -51,19 +55,20 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden flex flex-col items-center gap-6 py-4 bg-[#8b7355]">
-            {["Home", "About", "Products", "Contact"].map((item) => (
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-96" : "max-h-0"}`}>
+          <div className="flex flex-col items-center gap-6 py-4 bg-[#8b7355]">
+            {["Home", "About", "Products", "Contact"].map((item, index) => (
               <button
                 key={item}
                 onClick={() => handleScroll(item.toLowerCase())}
-                className="text-lg font-medium transition-colors hover:text-[#d2b48c]"
+                className={`text-lg font-medium transition-all duration-300 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
+                style={{ transitionDelay: isMenuOpen ? `${100 * index}ms` : "0ms" }}
               >
                 {item}
               </button>
             ))}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
