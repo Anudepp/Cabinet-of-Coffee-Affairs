@@ -1,4 +1,4 @@
-import { Coffee } from "lucide-react";
+import { Coffee, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -16,10 +16,19 @@ export default function Navbar() {
     <nav className="fixed w-full bg-[#8b7355] text-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Left Section: Hamburger Menu + Logo */}
+          <div className="flex items-center gap-3">
+            {/* Hamburger Menu Button for Mobile */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+
+            {/* Logo */}
             <Coffee className="h-8 w-8" />
-            <span className="ml-2 text-lg font-serif tracking-wide">
+            <span className="text-lg font-serif tracking-wide">
               Cabinet of Coffee Affairs
             </span>
           </div>
@@ -40,6 +49,21 @@ export default function Navbar() {
             ))}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden flex flex-col items-center gap-6 py-4 bg-[#8b7355]">
+            {["Home", "About", "Products", "Contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => handleScroll(item.toLowerCase())}
+                className="text-lg font-medium transition-colors hover:text-[#d2b48c]"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
