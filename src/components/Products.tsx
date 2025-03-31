@@ -1,114 +1,243 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import "./../styles/products.css";
+
+// Sample expanded product data
+const products = [
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 1,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Washed",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/1.png"
+  },
+  {
+    id: 2,
+    name: "Arabica Plantation AA",
+    type: "Robusta",
+    process: "Honey SunDried",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/2.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  {
+    id: 3,
+    name: "Arabica Plantation AA",
+    type: "Arabica",
+    process: "Natural",
+    characteristics: ["Floral aroma", "Medium acidity", "Caramel finish"],
+    image: "/3.png"
+  },
+  
+];
 
 export default function Products() {
-  const [selectedTab, setSelectedTab] = useState("Arabica");
-
-  const products = [
-    {
-      name: "Arabica Coffee Beans",
-      types: ["Plantation", "Cherry"],
-      grades: ["AAA", "AA", "A", "AB", "PB"],
-      characteristics: ["Mild flavor", "High acidity", "Aromatic notes"],
-      idealFor: "Ideal for specialty coffee blends and premium coffee brands",
-      image: "/arabicacoffeebeans.png",
-    },
-    {
-      name: "Robusta Coffee Beans",
-      types: ["Plantation", "Cherry"],
-      grades: ["AAA", "AA", "A", "AB", "PB"],
-      characteristics: ["Strong flavor", "Low acidity", "Higher caffeine content"],
-      idealFor: "Suitable for espresso blends and instant coffee production",
-      image: "/robustacoffeebeans.png",
-    },
-  ];
-
-  const selectedProduct =
-    selectedTab === "Arabica" ? products[0] : products[1];
 
   return (
-    <section id="products" className="products-section">
-      <div className="container">
-        <h2 className="products-heading">Our Premium Coffee Beans</h2>
+    <section id="products" className="bg-[#fdf5e6] py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-serif text-[#4a3728] text-center mb-12">
+          Our Premium Coffee Selection
+        </h2>
 
-        {/* Tabs */}
-        <div className="tabs">
-          {["Arabica", "Robusta"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setSelectedTab(tab)}
-              className={`tab-button ${selectedTab === tab ? "active" : ""}`}
+        {/* Product Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {products.map((product) => (
+            <motion.div
+              key={product.id}
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
             >
-              {tab}
-            </button>
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="font-serif text-lg text-[#4a3728]">
+                  {product.type}
+                </h3>
+                <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-[#8b7355] text-white">
+                  {product.process}
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* Product Display */}
-        <motion.div
-          key={selectedProduct.name}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-          className="product-display"
-        >
-          {/* Product Image */}
-          <div className="product-image">
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.name}
-              className="image"
-            />
-          </div>
-
-          {/* Product Details */}
-          <div className="product-details">
-            <h3 className="product-name">{selectedProduct.name}</h3>
-
-            {/* Types */}
-            <div className="product-section">
-              <h4 className="section-title">Types</h4>
-              <div className="tag-container">
-                {selectedProduct.types.map((type, idx) => (
-                  <span key={idx} className="tag type-tag">
-                    {type}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Grades */}
-            <div className="product-section">
-              <h4 className="section-title">Available Grades</h4>
-              <div className="tag-container">
-                {selectedProduct.grades.map((grade, idx) => (
-                  <span key={idx} className="tag grade-tag">
-                    {grade} ⭐
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Characteristics */}
-            <div className="product-section">
-              <h4 className="section-title">Key Characteristics</h4>
-              <ul className="characteristics-list">
-                {selectedProduct.characteristics.map((char, idx) => (
-                  <li key={idx} className="characteristic-item">
-                    <span className="bullet"></span>
-                    {char}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Ideal For */}
-            <div className="product-footer">
-              <p className="ideal-for">{selectedProduct.idealFor}</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
