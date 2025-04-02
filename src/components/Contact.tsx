@@ -4,8 +4,7 @@ import { useRef } from 'react';
 
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { triggerOnce: false, margin: "-100px 0px" });
-
+  const isInView = useInView(ref, { once: false, margin: "-100px 0px" });
   return (
     <section 
       id="contact" 
