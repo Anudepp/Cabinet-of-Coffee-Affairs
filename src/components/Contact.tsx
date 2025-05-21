@@ -1,16 +1,68 @@
 import { Phone, MessageCircle, MapPin, Mail } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px 0px" });
+
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({});
+
+  const validateForm = (fieldValues = formData) => {
+    const tempErrors = { ...errors };
+
+    if ('name' in fieldValues) {
+      const value = fieldValues.name.trim();
+      if (!value) tempErrors.name = "Name is required.";
+      else if (value.length < 2) tempErrors.name = "Name must be at least 2 characters long.";
+      else if (value.length > 50) tempErrors.name = "Name cannot exceed 50 characters.";
+      else if (!/^[a-zA-Z\s'-]+$/.test(value)) tempErrors.name = "Name can only contain letters, spaces, hyphens, and apostrophes.";
+      else delete tempErrors.name;
+    }
+
+    if ('email' in fieldValues) {
+      const value = fieldValues.email.trim();
+      if (!value) tempErrors.email = "Email is required.";
+      else if (!/^\S+@\S+\.\S+$/.test(value)) tempErrors.email = "Please enter a valid email address.";
+      else delete tempErrors.email;
+    }
+
+    if ('message' in fieldValues) {
+      const value = fieldValues.message.trim();
+      if (!value) tempErrors.message = "Message is required.";
+      else if (value.length < 10) tempErrors.message = "Message must be at least 10 characters long.";
+      else if (value.length > 500) tempErrors.message = "Message cannot exceed 500 characters.";
+      else delete tempErrors.message;
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    const updatedForm = { ...formData, [id]: value };
+    setFormData(updatedForm);
+    validateForm({ [id]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      // Submit logic here (preserve original functionality)
+      alert("Form submitted successfully!");
+      setFormData({ name: '', email: '', message: '' });
+      setErrors({});
+    }
+  };
+
+  const inputClass = (field) => `w-full px-4 py-3 border-2 rounded-xl transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#8B7355] focus:border-transparent hover:border-[#8B7355] ${
+    errors[field] ? 'border-red-500' : 'border-[#E7D7C6]'
+  }`;
+
   return (
-    <section 
-      id="contact" 
-      ref={ref}
-      className="bg-gradient-to-br from-[#FDF5E6] to-[#F5E6D3] py-20 px-4"
-    >
+    <section id="contact" ref={ref} className="bg-gradient-to-br from-[#FDF5E6] to-[#F5E6D3] py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           className="text-4xl font-serif text-center text-[#4A3728] mb-16"
@@ -20,7 +72,7 @@ export default function Contact() {
         >
           Contact Us
         </motion.h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12">
           <motion.div 
             className="bg-white rounded-2xl shadow-2xl overflow-hidden"
@@ -32,46 +84,52 @@ export default function Contact() {
               <h3 className="text-2xl font-serif text-[#4A3728] mb-6 border-b-2 border-[#8B7355] pb-3">
                 Get in Touch
               </h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-[#4A4A4A] mb-2">
                     Name
                   </label>
-                  <input 
-                    type="text" id="name" 
-                    className="w-full px-4 py-3 border-2 border-[#E7D7C6] rounded-xl 
-                    focus:outline-none focus:ring-2 focus:ring-[#8B7355] focus:border-transparent 
-                    transition duration-300 hover:border-[#8B7355]"
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={inputClass('name')}
                   />
+                  {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-[#4A4A4A] mb-2">
                     Email
                   </label>
-                  <input 
-                    type="email" id="email" 
-                    className="w-full px-4 py-3 border-2 border-[#E7D7C6] rounded-xl 
-                    focus:outline-none focus:ring-2 focus:ring-[#8B7355] focus:border-transparent 
-                    transition duration-300 hover:border-[#8B7355]"
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={inputClass('email')}
                   />
+                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-[#4A4A4A] mb-2">
                     Message
                   </label>
-                  <textarea 
-                    id="message" rows={4} 
-                    className="w-full px-4 py-3 border-2 border-[#E7D7C6] rounded-xl 
-                    focus:outline-none focus:ring-2 focus:ring-[#8B7355] focus:border-transparent 
-                    transition duration-300 hover:border-[#8B7355]"
+                  <textarea
+                    id="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={inputClass('message')}
                   ></textarea>
+                  {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
                 </div>
                 <motion.button
                   type="submit"
-                  className="w-full bg-[#8B7355] text-white py-3 rounded-full 
-                  font-bold hover:bg-[#6F4E37] transition duration-300 shadow-lg"
+                  className="w-full bg-[#8B7355] text-white py-3 rounded-full font-bold hover:bg-[#6F4E37] transition duration-300 shadow-lg disabled:opacity-50"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  disabled={Object.keys(errors).length > 0 || !formData.name || !formData.email || !formData.message}
                 >
                   Send Message
                 </motion.button>
