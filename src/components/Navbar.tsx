@@ -33,7 +33,8 @@ export default function Navbar() {
             {/* Logo */}
             <Coffee className="h-8 w-8" />
             <span className="text-lg font-serif tracking-wide">
-              Cabinet of Coffee Affairs
+                    Georges Coffee
+
             </span>
           </div>
 

@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <Coffee className="h-6 w-6" />
-              <span className="ml-2 font-serif">Cabinet of Coffee Affairs</span>
+              <span className="ml-2 font-serif">Georges Coffee</span>
             </div>
             <p className="text-sm text-gray-300">
               Premium coffee exports from the world's finest plantations.
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-300">
-          <p>&copy; {new Date().getFullYear()} Cabinet of Coffee Affairs. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} GEORGES IMPORTS & EXPORTS PRIVATE LIMITED. All rights reserved.</p>
         </div>
       </div>
     </footer>
