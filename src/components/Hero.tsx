@@ -31,11 +31,15 @@ function BackgroundImage() {
  */
 function Logo() {
   return (
-    <img 
-      src="/logo.png" 
-      alt="Cabinet of Coffee Affairs Logo" 
-      className="block mx-auto w-40 h-40 rounded-full border-4 border-white shadow-lg"
-    />
+    <div className="flex justify-center items-center">
+      <img
+        src="/logo.png"
+        alt="Cabinet of Coffee Affairs Logo"
+         className="w-60 h-60 rounded-2xl border-8 border-transparent shadow-xl p-2  flex items-center justify-center"
+        //className="w-80 h-80 rounded-full border-4 border-[#d2b48c] shadow-lg"
+
+      />
+    </div>
   );
 }
 
@@ -45,7 +49,7 @@ function Logo() {
 function Title() {
   return (
     <h1 className="text-4xl md:text-5xl font-bold font-serif relative inline-block pb-1">
-      Cabinet of Coffee Affairs
+      Georges Coffee
       <span className="block h-[2px] w-3/5 mx-auto bg-[#d2b48c] mt-1"></span>
     </h1>
   );
