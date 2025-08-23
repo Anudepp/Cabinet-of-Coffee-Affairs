@@ -152,7 +152,7 @@ export default function Contact() {
                   <Phone className="w-8 h-8 text-[#8B7355] flex-shrink-0" />
                   <div>
                     <h4 className="font-bold text-[#4A3728]">Phone</h4>
-                    <p className="text-[#4A4A4A]">+91 89250 70941
+                    <p className="text-[#4A4A4A]">+91 7093126396
 </p>
                   
                   </div>
@@ -161,7 +161,7 @@ export default function Contact() {
                   <MessageCircle className="w-8 h-8 text-[#25D366] flex-shrink-0" /> 
                   <div>
                     <h4 className="font-bold text-[#4A3728]">WhatsApp</h4>
-                    <p className="text-[#4A4A4A]"> +91 89250 70941
+                    <p className="text-[#4A4A4A]"> +91 7093126396
 </p>
                   </div>
                 </div>
