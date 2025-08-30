@@ -45,7 +45,6 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-10">
             {[
-              { name: "Home", path: "/" },
               { name: "About", path: "/about" },
               { name: "Products", path: "/products" },
               { name: "Contact", path: "/contact" },
@@ -72,7 +71,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col items-center gap-6 py-5 bg-gradient-to-b from-[#4b2e2e] via-[#8b7355] to-[#d2b48c]">
             {[
-              { name: "Home", path: "/" },
+            
               { name: "About", path: "/about" },
               { name: "Products", path: "/products" },
               { name: "Contact", path: "/contact" },
