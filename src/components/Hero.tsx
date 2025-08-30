@@ -28,11 +28,11 @@ export default function Hero() {
               index === current ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
+           <img
+  src={img}
+  alt={`Slide ${index + 1}`}
+  className="w-full h-full object-contain md:object-cover bg-black"
+/>
           </div>
         ))}
       </div>
