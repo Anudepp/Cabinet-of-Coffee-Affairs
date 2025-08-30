@@ -1,78 +1,69 @@
+import { useState, useEffect } from "react";
+
+const images = [
+  "/HeroImage1.jpeg",
+  "/HeroImage2.jpeg",
+  "/HeroImage3.jpeg",
+];
+
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div id="home" className="relative h-screen flex items-center justify-center text-center">
-      {/* Background Section with Overlay */}
-      <BackgroundImage />
-      
-      {/* Hero Content Section */}
-      <div className="relative max-w-4xl mx-auto px-4 text-white">
-        <Logo />
-        <Title />
-        <Tagline />
-        <Subtitle />
+    <div id="home" className="relative w-full h-screen overflow-hidden">
+      {/* Carousel Images */}
+      <div className="absolute inset-0 flex">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === current ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={img}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Overlay for luxury feel */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40" />
+
+ {/* Title & Tagline */}
+{/* Title & Tagline */}
+<div className="relative z-10 flex flex-col items-center text-center text-white mt-28">
+  <h1 className="text-4xl md:text-5xl font-bold font-serif relative inline-block pb-1">
+    Georges Coffee
+    <span className="block h-[2px] w-3/5 mx-auto bg-[#d2b48c] mt-1"></span>
+  </h1>
+  <p className="opacity-0 animate-fadeInUp delay-300 text-[#d2b48c] text-3xl italic font-cursive">
+    From Farm to Globe
+  </p>
+</div>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full ${
+              index === current ? "bg-white" : "bg-gray-400"
+            }`}
+          />
+        ))}
       </div>
     </div>
-  );
-}
-
-/**
- * Background Image with Overlay
- */
-function BackgroundImage() {
-  return (
-    <div className="absolute inset-0 bg-[url('/heroimage.png')] bg-cover bg-center">
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-    </div>
-  );
-}
-
-/**
- * Logo Component
- */
-function Logo() {
-  return (
-    <div className="flex justify-center items-center">
-      <img
-        src="/logo.png"
-        alt="Cabinet of Coffee Affairs Logo"
-         className="w-60 h-60 rounded-2xl border-8 border-transparent shadow-xl p-2  flex items-center justify-center"
-        //className="w-80 h-80 rounded-full border-4 border-[#d2b48c] shadow-lg"
-
-      />
-    </div>
-  );
-}
-
-/**
- * Title Component
- */
-function Title() {
-  return (
-    <h1 className="text-4xl md:text-5xl font-bold font-serif relative inline-block pb-1">
-      Georges Coffee
-      <span className="block h-[2px] w-3/5 mx-auto bg-[#d2b48c] mt-1"></span>
-    </h1>
-  );
-}
-
-/**
- * Tagline Component (Animated Fade & Slide-up)
- */
-function Tagline() {
-  return (
-    <p className="opacity-0 animate-fadeInUp delay-300 text-[#d2b48c] text-3xl italic font-cursive">
-      From Farm to Globe
-    </p>
-  );
-}
-
-/**
- * Subtitle Component (Animated Fade & Slide-up)
- */
-function Subtitle() {
-  return (
-    <p className="text-[#d2b48c] text-lg md:text-xl mt-1 opacity-0 animate-fadeInUp delay-500">
-      Premium Coffee Exports from the World's Finest Plantations
-    </p>
   );
 }
