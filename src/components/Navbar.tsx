@@ -1,14 +1,14 @@
+// filepath: /Users/anudeepdebbata/Desktop/FreeLancing/CCA/src/components/Navbar.tsx
 import { Coffee, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const handleScroll = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const handleNavigate = (path: string) => {
+    navigate(path);
     setIsMenuOpen(false);
   };
 
@@ -33,20 +33,24 @@ export default function Navbar() {
             {/* Logo */}
             <Coffee className="h-8 w-8" />
             <span className="text-lg font-serif tracking-wide">
-                    Georges Coffee
-
+              Georges Coffee
             </span>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
-            {["Home", "About", "Products", "Contact"].map((item) => (
-              <div key={item} className="relative group">
+            {[
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+              { name: "Products", path: "/products" },
+              { name: "Contact", path: "/contact" },
+            ].map((item) => (
+              <div key={item.name} className="relative group">
                 <button
-                  onClick={() => handleScroll(item.toLowerCase())}
+                  onClick={() => handleNavigate(item.path)}
                   className="text-lg font-medium transition-colors hover:text-[#d2b48c]"
                 >
-                  {item}
+                  {item.name}
                 </button>
                 {/* Underline effect */}
                 <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-[#d2b48c] scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
@@ -58,14 +62,19 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-96" : "max-h-0"}`}>
           <div className="flex flex-col items-center gap-6 py-4 bg-[#8b7355]">
-            {["Home", "About", "Products", "Contact"].map((item, index) => (
+            {[
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+              { name: "Products", path: "/products" },
+              { name: "Contact", path: "/contact" },
+            ].map((item, index) => (
               <button
-                key={item}
-                onClick={() => handleScroll(item.toLowerCase())}
+                key={item.name}
+                onClick={() => handleNavigate(item.path)}
                 className={`text-lg font-medium transition-all duration-300 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: isMenuOpen ? `${100 * index}ms` : "0ms" }}
               >
-                {item}
+                {item.name}
               </button>
             ))}
           </div>
