@@ -46,10 +46,6 @@ export default function Hero() {
 
         {/* Title & Tagline */}
         <div className="relative z-10 flex flex-col items-center text-center text-white mt-28">
-          <h1 className="text-4xl md:text-5xl font-bold font-serif relative inline-block pb-1">
-            Georges Coffee
-            <span className="block h-[2px] w-3/5 mx-auto bg-[#d2b48c] mt-1"></span>
-          </h1>
           <p className="opacity-0 animate-fadeInUp delay-300 text-[#d2b48c] text-3xl italic font-cursive">
             From Farm to Globe
           </p>

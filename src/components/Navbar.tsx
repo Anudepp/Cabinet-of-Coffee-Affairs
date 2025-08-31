@@ -1,4 +1,3 @@
-// filepath: /Users/anudeepdebbata/Desktop/FreeLancing/CCA/src/components/Navbar.tsx
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="fixed w-full bg-gradient-to-r from-[#4b2e2e] via-[#8b7355] to-[#d2b48c] text-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24"> {/* ✅ Taller navbar */}
           {/* Left Section: Hamburger Menu + Logo */}
           <div className="flex items-center gap-3">
             {/* Hamburger Menu Button for Mobile */}
@@ -34,10 +33,10 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Georges Coffee Logo"
-              className="h-20 w-auto object-contain cursor-pointer"
+              className="h-16 w-auto object-contain cursor-pointer -ml-2" // ✅ smaller than navbar
               onClick={() => handleNavigate("/")}
             />
-            <span className="text-xl md:text-2xl font-serif tracking-wide font-semibold drop-shadow-sm">
+            <span className="text-2xl md:text-5xl italic font-cursive drop-shadow-sm">
               Georges Coffee
             </span>
           </div>
@@ -71,7 +70,6 @@ export default function Navbar() {
         >
           <div className="flex flex-col items-center gap-6 py-5 bg-gradient-to-b from-[#4b2e2e] via-[#8b7355] to-[#d2b48c]">
             {[
-            
               { name: "About", path: "/about" },
               { name: "Products", path: "/products" },
               { name: "Contact", path: "/contact" },
