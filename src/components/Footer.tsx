@@ -1,4 +1,5 @@
 import { Coffee } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,20 +12,32 @@ export default function Footer() {
             <span className="ml-2 font-serif font-semibold">Georges Coffee</span>
           </div>
 
-          {/* Links Section */}
+          {/* Navigation Links */}
           <div className="flex flex-wrap items-center gap-8 text-sm">
             {/* Quick Links */}
             <div className="flex gap-4">
-              <a href="#home" className="text-gray-300 hover:text-white">Home</a>
-              <a href="#about" className="text-gray-300 hover:text-white">About</a>
-              <a href="#products" className="text-gray-300 hover:text-white">Products</a>
-              <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
+              <Link to="/" className="text-gray-300 hover:text-white">
+                Home
+              </Link>
+              <Link to="/about" className="text-gray-300 hover:text-white">
+                About
+              </Link>
+              <Link to="/products" className="text-gray-300 hover:text-white">
+                Products
+              </Link>
+              <Link to="/contact" className="text-gray-300 hover:text-white">
+                Contact
+              </Link>
             </div>
 
             {/* Products */}
             <div className="flex gap-4 border-l border-gray-600 pl-6">
-              <a href="#" className="text-gray-300 hover:text-white">Arabica Premium</a>
-              <a href="#" className="text-gray-300 hover:text-white">Robusta Select</a>
+              <Link to="/products" className="text-gray-300 hover:text-white">
+                Arabica Premium
+              </Link>
+              <Link to="/products" className="text-gray-300 hover:text-white">
+                Robusta Select
+              </Link>
             </div>
           </div>
 

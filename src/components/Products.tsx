@@ -164,4 +164,5 @@ export default function Products() {
       </Transition>
     </section>
   );
+  
 }
