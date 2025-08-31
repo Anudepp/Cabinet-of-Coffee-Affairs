@@ -65,17 +65,17 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* WHAT WE DO SECTION */}
+            {/* WHAT WE DO SECTION */}
       <section
         id="what-we-do"
         className="relative w-full bg-gradient-to-b from-[#4b2e2e] to-[#f7e9d7] py-20 px-6 md:px-20"
       >
-        {/* Background Accent - left side coffee overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4b2e2e]/80 to-transparent md:w-1/2"></div>
+        {/* Background Accent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4b2e2e]/80 to-transparent"></div>
 
-        <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Intro Text */}
-          <div className="text-white md:pr-10">
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-12">
+          {/* Intro Text */}
+          <div className="text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
               What We Do
             </h2>
@@ -83,16 +83,14 @@ export default function Hero() {
               We specialize in the export of premium-grade green coffee beans
               sourced from the finest plantations in the southern states of
               India—regions renowned for their fertile soil, ideal climate, and
-              unique flavor profiles.
-            </p>
-            <p className="text-lg leading-relaxed opacity-90">
-              Our expertise combines sustainable sourcing, strict quality
-              checks, and global logistics to ensure our partners receive
-              authentic coffee from India, crafted for world markets.
+              unique flavor profiles. Our expertise combines sustainable
+              sourcing, strict quality checks, and global logistics to ensure
+              our partners receive authentic coffee from India, crafted for
+              world markets.
             </p>
           </div>
 
-          {/* Right - Card Layout */}
+          {/* Card Layout */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="grid gap-8 md:grid-cols-2 text-left">
               <div className="p-4 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
@@ -146,7 +144,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );
