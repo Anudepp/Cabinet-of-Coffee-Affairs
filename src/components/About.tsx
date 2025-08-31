@@ -30,7 +30,10 @@ const About: React.FC = () => {
   return (
     <>
       {/* About Section */}
-      <section id="about" className="py-20 bg-[#FDF5E6]">
+      <section
+        id="about"
+        className="pt-32 pb-20 bg-[#FDF5E6] scroll-mt-32"
+      >
         <div className="max-w-[80rem] mx-auto px-4">
           {/* Section Title */}
           <h2 className="text-4xl font-serif text-center text-[#2F2F2F] mb-16">
@@ -63,7 +66,7 @@ const About: React.FC = () => {
                 src="https://5.imimg.com/data5/SELLER/Default/2024/9/452965436/DE/NM/HW/197384915/arabica-green-coffee-beans.jpg"
                 alt="Coffee plantation"
                 className="w-full h-full object-cover"
-                loading="lazy" // performance
+                loading="lazy"
               />
             </div>
             <div className="p-8 md:w-1/2">
