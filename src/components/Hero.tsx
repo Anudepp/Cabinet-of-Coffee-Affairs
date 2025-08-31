@@ -20,8 +20,7 @@ export default function Hero() {
       {/* HERO SECTION */}
       <div
         id="home"
-        className="relative w-full h-screen bg-black pt-24 overflow-hidden" 
-        
+        className="relative w-full h-screen bg-black pt-24 overflow-hidden"
       >
         {/* Carousel Images */}
         <div className="relative h-full w-full flex items-center justify-center">
@@ -44,15 +43,20 @@ export default function Hero() {
         {/* Overlay for luxury feel */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 pointer-events-none" />
 
-        {/* Title & Tagline */}
-        <div className="relative z-10 flex flex-col items-center text-center text-white mt-10">
-          <p className="opacity-0 animate-fadeInUp delay-300 text-[#d2b48c] text-3xl italic font-cursive">
+        {/* Tagline - Top Left (pushed more right) */}
+        <div className="absolute top-28 left-28 md:left-36 z-20">
+          <p
+            className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(to right, #b08d57, #c5a880)",
+            }}
+          >
             From Farm to Globe
           </p>
         </div>
 
         {/* Dots Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
           {images.map((_, index) => (
             <button
               key={index}
@@ -65,7 +69,7 @@ export default function Hero() {
         </div>
       </div>
 
-            {/* WHAT WE DO SECTION */}
+      {/* WHAT WE DO SECTION */}
       <section
         id="what-we-do"
         className="relative w-full bg-gradient-to-b from-[#4b2e2e] to-[#f7e9d7] py-20 px-6 md:px-20"
