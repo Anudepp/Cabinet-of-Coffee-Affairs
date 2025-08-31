@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, MapPin, Mail } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import Footer from './Footer';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -62,6 +63,7 @@ export default function Contact() {
   }`;
 
   return (
+     <>
     <section id="contact" ref={ref} className="bg-gradient-to-br from-[#FDF5E6] to-[#F5E6D3] py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
@@ -186,5 +188,7 @@ export default function Contact() {
         </div>
       </div>
     </section>
+      <Footer />
+       </>
   );
 }
