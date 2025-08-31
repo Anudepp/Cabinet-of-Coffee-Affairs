@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaWhatsapp } from "react-icons/fa"; 
 import Footer from "./Footer";
 
 const images = ["/HeroImage1.jpeg", "/HeroImage2.jpeg", "/HeroImage3.jpeg"];
@@ -14,6 +15,13 @@ export default function Hero() {
     );
     return () => clearInterval(interval);
   }, []);
+
+  // ✅ WhatsApp link
+  const dealerNumber = "917093126396";
+  const message = "Hello, I am interested in your coffee beans";
+  const whatsappLink = `https://wa.me/${dealerNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <>
@@ -40,10 +48,10 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Overlay for luxury feel */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 pointer-events-none" />
 
-        {/* Tagline - Top Left (pushed more right) */}
+        {/* Tagline */}
         <div className="absolute top-28 left-28 md:left-36 z-20">
           <p
             className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent"
@@ -67,6 +75,16 @@ export default function Hero() {
             />
           ))}
         </div>
+
+        {/* ✅ WhatsApp Floating Button */}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
+        >
+          <FaWhatsapp size={32} />
+        </a>
       </div>
 
       {/* WHAT WE DO SECTION */}
@@ -74,7 +92,6 @@ export default function Hero() {
         id="what-we-do"
         className="relative w-full bg-gradient-to-b from-[#4b2e2e] to-[#f7e9d7] py-20 px-6 md:px-20"
       >
-        {/* Background Accent */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#4b2e2e]/80 to-transparent"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-12">
@@ -138,7 +155,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Closing Note */}
             <p className="mt-10 text-lg italic text-gray-700">
               For us, coffee export is not just a business—it’s a passion. We
               take pride in being part of every cup brewed with our beans,
