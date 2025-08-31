@@ -52,11 +52,13 @@ export default function Products() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen"> {/* ✅ Full-page flex layout */}
-      
-      {/* Main Content grows to push footer down */}
+    <div className="flex flex-col min-h-screen">
+      {/* ✅ Pushes content below navbar & fixes anchor scrolling */}
       <main className="flex-grow">
-        <section id="products" className="bg-[#fdf5e6] py-20 px-4">
+        <section
+          id="products"
+          className="bg-[#fdf5e6] pt-32 pb-20 px-4 scroll-mt-32"
+        >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl font-serif text-[#4a3728] text-center mb-12">
               Our Premium Coffee Selection
@@ -188,7 +190,6 @@ export default function Products() {
         </section>
       </main>
 
-      
       <Footer />
     </div>
   );
