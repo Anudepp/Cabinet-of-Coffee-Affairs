@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Footer from "./Footer";
+
 const images = [
   "/HeroImage1.jpeg",
   "/HeroImage2.jpeg",
@@ -146,7 +148,8 @@ export default function Hero() {
       </p>
     </div>
   </div>
-</section>
+      </section>
+      <Footer />
 
    </>
   );
