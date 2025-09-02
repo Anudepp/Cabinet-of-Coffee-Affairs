@@ -109,6 +109,9 @@ export default function Hero() {
               our partners receive authentic coffee from India, crafted for
               world markets.
             </p>
+            <p className="text-lg md:text-xl leading-relaxed mb-6">
+              As merchant exporters, we bridge the gap between trusted growers and discerning buyers worldwide. We ensure competitive pricing while maintaining uncompromised quality in every deal.Driven by integrity and a passion for excellence, we are committed to positioning Indian coffee as a trusted and sought-after choice in global markets.
+            </p>
           </div>
 
           {/* Card Layout */}
