@@ -54,15 +54,18 @@ export default function Hero() {
 
         {/* Tagline */}
         <div className="absolute top-28 left-28 md:left-36 z-20">
-          <p
-             className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(to right, #b08d57, #c5a880)",
-            }}
-          >
-            From Farm to Globe
-          </p>
-        </div>
+  <p
+    className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent drop-shadow-lg"
+    style={{
+      backgroundImage: "linear-gradient(to right, #ffd700, #ffeb3b, #ffffff)",
+      WebkitTextFillColor: "transparent",
+      WebkitBackgroundClip: "text",
+      textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
+    }}
+  >
+    From Farm to Globe
+  </p>
+</div>
 
         {/* Dots Indicator */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
