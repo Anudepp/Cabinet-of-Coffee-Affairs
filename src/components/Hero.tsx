@@ -17,7 +17,7 @@ export default function Hero() {
   }, []);
 
   // ✅ WhatsApp link
-  const dealerNumber = "917093126396";
+  const dealerNumber = "+61468301261";
   const message = "Hello, I am interested in your coffee beans";
   const whatsappLink = `https://wa.me/${dealerNumber}?text=${encodeURIComponent(
     message
