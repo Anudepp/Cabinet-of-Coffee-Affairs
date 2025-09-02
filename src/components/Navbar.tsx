@@ -30,15 +30,15 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <img
-              src="/logo.png"
-              alt="Georges Coffee Logo"
-              className="h-16 w-auto object-contain cursor-pointer -ml-2" // ✅ smaller than navbar
-              onClick={() => handleNavigate("/")}
-            />
-            <span className="text-2xl md:text-5xl italic font-cursive drop-shadow-sm">
-              Georges Coffee
-            </span>
+<img
+  src="/logo.png"
+  alt="Georges Coffee Logo"
+  className="h-20 w-auto object-contain cursor-pointer -ml-1" // ✅ larger but still < navbar
+  onClick={() => handleNavigate("/")}
+/>
+<span className="text-2xl md:text-5xl italic font-cursive drop-shadow-sm">
+  Georges Coffee
+</span>
           </div>
 
           {/* Desktop Menu */}
