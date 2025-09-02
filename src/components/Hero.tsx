@@ -42,7 +42,8 @@ export default function Hero() {
               <img
                 src={img}
                 alt={`Slide ${index + 1}`}
-                className="max-h-full max-w-full object-contain"
+                className="w-full h-full object-cover"
+                //className="max-h-full max-w-full object-contain"
               />
             </div>
           ))}
@@ -54,7 +55,7 @@ export default function Hero() {
         {/* Tagline */}
         <div className="absolute top-28 left-28 md:left-36 z-20">
           <p
-            className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent"
+             className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent"
             style={{
               backgroundImage: "linear-gradient(to right, #b08d57, #c5a880)",
             }}
