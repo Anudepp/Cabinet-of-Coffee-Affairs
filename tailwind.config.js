@@ -7,6 +7,8 @@ export default {
         fadeInUp: "fadeInUp 1.2s ease-out forwards"
       },
       fontFamily: {
+        "playfair-display": ['"Playfair Display"', "serif"],
+        poppins: ["Poppins", "sans-serif"],
         cursive: ["Dancing Script", "cursive"]
       },
       keyframes: {

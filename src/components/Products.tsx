@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ----------------------
-// Types
+// Types (Unchanged)
 // ----------------------
 interface CoffeeProduct {
   id: number;
@@ -22,7 +22,7 @@ interface CoffeeCategory {
 }
 
 // ----------------------
-// Sample Data
+// Sample Data (Unchanged - keeping your original data)
 // ----------------------
 const coffeeCategories: CoffeeCategory[] = [
   {
@@ -276,136 +276,174 @@ export default function Products() {
   );
 
   return (
-    <section id="products" className="py-16 bg-[#f9f5f0]">
+    <section id="products" className="py-24 bg-[#2C1D14] text-[#F0EAD6]">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-serif text-center text-[#4a3728] mb-12">
-          Our Coffee Selection
+        <h2 className="text-4xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg">
+          Our Curated Selection ☕
         </h2>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          {["Arabica", "Robusta"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab as "Arabica" | "Robusta")}
-              className={`px-6 py-2 mx-2 text-lg font-medium rounded-full transition-all ${
-                activeTab === tab
-                  ? "bg-[#4a3728] text-white shadow-md"
-                  : "bg-white text-[#4a3728] border border-[#4a3728] hover:bg-[#8b7355] hover:text-white"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className="flex justify-center mb-16">
+          <AnimatePresence mode="wait">
+            {["Arabica", "Robusta"].map((tab) => (
+              <motion.button
+                key={tab}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => setActiveTab(tab as "Arabica" | "Robusta")}
+                className={`relative px-8 py-3 mx-2 text-lg font-poppins font-medium rounded-full transition-all duration-300 overflow-hidden group
+                  ${
+                    activeTab === tab
+                      ? "bg-[#B5843E] text-white shadow-lg shadow-[#B5843E]/30"
+                      : "bg-transparent text-[#D4C4A7] border border-[#8C5F3A] hover:bg-[#8C5F3A] hover:bg-opacity-20 hover:text-white"
+                  }`
+                }
+              >
+                {tab}
+                {/* Active Tab Underline Effect */}
+                {activeTab === tab && (
+                  <motion.span
+                    layoutId="underline"
+                    className="absolute bottom-0 left-0 w-full h-1 bg-white"
+                  />
+                )}
+              </motion.button>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* Categories */}
-        <div className="space-y-16">
-          {filteredCategories.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-3xl font-serif text-[#4a3728] mb-8 border-b-2 border-[#8b7355] inline-block">
-                {category.title}
-              </h3>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {category.products.map((product) => (
-                  <motion.div
-                    key={product.id}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all"
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <h4 className="font-serif text-lg text-[#4a3728]">
-                        {product.name}
-                      </h4>
-                      <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-[#8b7355] text-white">
-                        {product.process}
-                      </span>
-                      <button
-                        onClick={() => setSelectedProduct(product)}
-                        className="mt-4 block w-full bg-[#4a3728] text-white py-2 rounded-lg hover:bg-[#8b7355] transition-colors"
-                      >
-                        View Details
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="space-y-24">
+          <AnimatePresence mode="wait">
+            {filteredCategories.map((category) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h3 className="text-3xl md:text-4xl font-playfair-display text-[#F0EAD6] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-[#B5843E] drop-shadow">
+                  {category.title}
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                  {category.products.map((product) => (
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4 }}
+                      whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.4)" }}
+                      className="bg-[#3D2B20] rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 transform group border border-[#4a3728]"
+                      onClick={() => setSelectedProduct(product)}
+                    >
+                      <div className="relative overflow-hidden w-full h-56">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-6 text-center">
+                        <h4 className="font-playfair-display text-2xl text-[#F0EAD6] mb-2 leading-tight drop-shadow-sm">
+                          {product.name}
+                        </h4>
+                        <span className="inline-block mt-2 px-3 py-1 text-xs font-poppins rounded-full bg-[#8C5F3A] text-white tracking-wider">
+                          {product.process}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
 
       {/* Modal */}
-{selectedProduct && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      className="bg-white p-8 rounded-lg shadow-xl max-w-lg w-full relative flex flex-col max-h-[90vh] overflow-y-auto"
-    >
-      {/* Close (X) top-right */}
-      <button
-        onClick={() => setSelectedProduct(null)}
-        className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-      >
-        ✕
-      </button>
+      <AnimatePresence>
+        {selectedProduct && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
+              className="bg-[#3D2B20] text-[#F0EAD6] p-8 rounded-xl shadow-2xl max-w-lg w-full relative flex flex-col border border-[#8C5F3A]"
+            >
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-4 right-4 text-[#F0EAD6] hover:text-[#B5843E] transition-colors z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
 
-      {/* Product Title */}
-      <h3 className="text-2xl font-serif mb-4 text-[#4a3728]">
-        {selectedProduct.name}
-      </h3>
-
-      {/* Image */}
-      <img
-        src={selectedProduct.image}
-        alt={selectedProduct.name}
-        className="w-full h-48 object-cover mb-4 rounded-lg"
-      />
-
-      {/* Details */}
-      <div className="space-y-2 text-sm text-gray-700 mb-6">
-        <p>
-          <strong>Type:</strong> {selectedProduct.type}
-        </p>
-        <p>
-          <strong>Process:</strong> {selectedProduct.process}
-        </p>
-        <p>
-          <strong>Area:</strong> {selectedProduct.Area}
-        </p>
-        <p>
-          <strong>Altitude:</strong> {selectedProduct.Altitude}
-        </p>
-        <p>
-          <strong>Characteristics:</strong>{" "}
-          {selectedProduct.characteristics.join(", ")}
-        </p>
-      </div>
-
-      {/* Buttons */}
-      <div className="flex justify-between gap-4 mt-auto">
-        <button
-          className="flex-1 bg-[#8b7355] text-white px-4 py-2 rounded-md hover:bg-[#6b5a45] transition-colors"
-        >
-          Request Sample
-        </button>
-        <button
-          onClick={() => setSelectedProduct(null)}
-          className="flex-1 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors"
-        >
-          Close
-        </button>
-      </div>
-    </motion.div>
-  </div>
-)}
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="flex-shrink-0 w-full md:w-1/2">
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    className="w-full h-full object-cover rounded-lg aspect-square border border-[#8C5F3A]"
+                  />
+                </div>
+                <div className="flex-1 space-y-4">
+                  <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm">
+                    {selectedProduct.name}
+                  </h3>
+                  <div className="space-y-2 text-sm text-[#D4C4A7] opacity-90">
+                    <p>
+                      <strong>Type:</strong> {selectedProduct.type}
+                    </p>
+                    <p>
+                      <strong>Process:</strong> {selectedProduct.process}
+                    </p>
+                    <p>
+                      <strong>Area:</strong> {selectedProduct.Area}
+                    </p>
+                    <p>
+                      <strong>Altitude:</strong> {selectedProduct.Altitude}
+                    </p>
+                    <p>
+                      <strong>Characteristics:</strong>{" "}
+                      {selectedProduct.characteristics.join(", ")}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-4 mt-8">
+                    <button className="bg-[#B5843E] text-white px-6 py-3 rounded-lg hover:bg-[#D19B53] transition-colors shadow-lg font-poppins text-lg">
+                      Request a Sample
+                    </button>
+                    <button
+                      onClick={() => setSelectedProduct(null)}
+                      className="border border-[#8C5F3A] text-[#8C5F3A] px-6 py-3 rounded-lg hover:bg-[#8C5F3A] hover:text-white transition-colors font-poppins text-lg"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
