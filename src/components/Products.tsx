@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// 1. Import your Footer component
+import Footer from "./Footer"; 
 
 // ----------------------
 // Types (Unchanged)
@@ -276,90 +278,95 @@ export default function Products() {
   );
 
   return (
-    <section id="products" className="py-24 bg-[#2C1D14] text-[#F0EAD6]">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg">
-          Our Curated Selection ☕
-        </h2>
+    <>
+      <section id="products" className="py-24 bg-[#2C1D14] text-[#F0EAD6]">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg">
+            Our Curated Selection ☕
+          </h2>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-16">
-          <AnimatePresence mode="wait">
-            {["Arabica", "Robusta"].map((tab) => (
-              <motion.button
-                key={tab}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveTab(tab as "Arabica" | "Robusta")}
-                className={`relative px-8 py-3 mx-2 text-lg font-poppins font-medium rounded-full transition-all duration-300 overflow-hidden group
-                  ${
-                    activeTab === tab
-                      ? "bg-[#B5843E] text-white shadow-lg shadow-[#B5843E]/30"
-                      : "bg-transparent text-[#D4C4A7] border border-[#8C5F3A] hover:bg-[#8C5F3A] hover:bg-opacity-20 hover:text-white"
-                  }`
-                }
-              >
-                {tab}
-                {/* Active Tab Underline Effect */}
-                {activeTab === tab && (
-                  <motion.span
-                    layoutId="underline"
-                    className="absolute bottom-0 left-0 w-full h-1 bg-white"
-                  />
-                )}
-              </motion.button>
-            ))}
-          </AnimatePresence>
-        </div>
+          {/* Tabs */}
+          <div className="flex justify-center mb-16">
+            <AnimatePresence mode="wait">
+              {["Arabica", "Robusta"].map((tab) => (
+                <motion.button
+                  key={tab}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => setActiveTab(tab as "Arabica" | "Robusta")}
+                  className={`relative px-8 py-3 mx-2 text-lg font-poppins font-medium rounded-full transition-all duration-300 overflow-hidden group
+                    ${
+                      activeTab === tab
+                        ? "bg-[#B5843E] text-white shadow-lg shadow-[#B5843E]/30"
+                        : "bg-transparent text-[#D4C4A7] border border-[#8C5F3A] hover:bg-[#8C5F3A] hover:bg-opacity-20 hover:text-white"
+                    }`
+                  }
+                >
+                  {tab}
+                  {/* Active Tab Underline Effect */}
+                  {activeTab === tab && (
+                    <motion.span
+                      layoutId="underline"
+                      className="absolute bottom-0 left-0 w-full h-1 bg-white"
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </AnimatePresence>
+          </div>
 
-        {/* Categories */}
-        <div className="space-y-24">
-          <AnimatePresence mode="wait">
-            {filteredCategories.map((category) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h3 className="text-3xl md:text-4xl font-playfair-display text-[#F0EAD6] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-[#B5843E] drop-shadow">
-                  {category.title}
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-                  {category.products.map((product) => (
-                    <motion.div
-                      key={product.id}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4 }}
-                      whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.4)" }}
-                      className="bg-[#3D2B20] rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 transform group border border-[#4a3728]"
-                      onClick={() => setSelectedProduct(product)}
-                    >
-                      <div className="relative overflow-hidden w-full h-56">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-6 text-center">
-                        <h4 className="font-playfair-display text-2xl text-[#F0EAD6] mb-2 leading-tight drop-shadow-sm">
-                          {product.name}
-                        </h4>
-                        <span className="inline-block mt-2 px-3 py-1 text-xs font-poppins rounded-full bg-[#8C5F3A] text-white tracking-wider">
-                          {product.process}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {/* Categories */}
+          <div className="space-y-24">
+            <AnimatePresence mode="wait">
+              {filteredCategories.map((category) => (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <h3 className="text-3xl md:text-4xl font-playfair-display text-[#F0EAD6] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-[#B5843E] drop-shadow">
+                    {category.title}
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                    {category.products.map((product) => (
+                      <motion.div
+                        key={product.id}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4 }}
+                        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.4)" }}
+                        className="bg-[#3D2B20] rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 transform group border border-[#4a3728]"
+                        onClick={() => setSelectedProduct(product)}
+                      >
+                        <div className="relative overflow-hidden w-full h-56">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="p-6 text-center">
+                          <h4 className="font-playfair-display text-2xl text-[#F0EAD6] mb-2 leading-tight drop-shadow-sm">
+                            {product.name}
+                          </h4>
+                          <span className="inline-block mt-2 px-3 py-1 text-xs font-poppins rounded-full bg-[#8C5F3A] text-white tracking-wider">
+                            {product.process}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* 2. Add the Footer component here */}
+      <Footer />
 
       {/* Modal */}
       <AnimatePresence>
@@ -406,7 +413,7 @@ export default function Products() {
                   />
                 </div>
                 <div className="flex-1 space-y-4">
-                  <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm">
+                  <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm leading-tight overflow-hidden">
                     {selectedProduct.name}
                   </h3>
                   <div className="space-y-2 text-sm text-[#D4C4A7] opacity-90">
@@ -444,6 +451,6 @@ export default function Products() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </>
   );
 }
