@@ -448,7 +448,8 @@ export default function Products() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="bg-[#3D2B20] text-[#F0EAD6] p-8 rounded-xl shadow-2xl max-w-lg w-full relative flex flex-col border border-[#8C5F3A]"
+              // Changed max-w-lg to max-w-2xl for a larger modal
+              className="bg-[#3D2B20] text-[#F0EAD6] p-8 rounded-xl shadow-2xl max-w-2xl w-full relative flex flex-col border border-[#8C5F3A]"
             >
               <button
                 onClick={() => setSelectedProduct(null)}
@@ -471,34 +472,42 @@ export default function Products() {
               </button>
 
               <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0 w-full md:w-1/2">
-                  <img
+                {/* Image takes up more space and has a hover zoom */}
+                <div className="flex-shrink-0 w-full md:w-3/5 relative overflow-hidden rounded-lg border border-[#8C5F3A]">
+                  <motion.img
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
-                    className="w-full h-full object-cover rounded-lg aspect-square border border-[#8C5F3A]"
+                    initial={{ scale: 1 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full object-cover rounded-lg aspect-square"
                   />
                 </div>
-                <div className="flex-1 space-y-4">
-                  <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm leading-tight overflow-hidden">
-                    {selectedProduct.name}
-                  </h3>
-                  <div className="space-y-2 text-sm text-[#D4C4A7] opacity-90">
-                    <p>
-                      <strong>Type:</strong> {selectedProduct.type}
-                    </p>
-                    <p>
-                      <strong>Process:</strong> {selectedProduct.process}
-                    </p>
-                    <p>
-                      <strong>Area:</strong> {selectedProduct.Area}
-                    </p>
-                    <p>
-                      <strong>Altitude:</strong> {selectedProduct.Altitude}
-                    </p>
-                    <p>
-                      <strong>Characteristics:</strong>{" "}
-                      {selectedProduct.characteristics.join(", ")}
-                    </p>
+                {/* Details section adjusted */}
+                <div className="flex-1 space-y-4 md:w-2/5 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm leading-tight overflow-hidden">
+                      {selectedProduct.name}
+                    </h3>
+                    <div className="space-y-2 text-sm text-[#D4C4A7] opacity-90">
+                      <p>
+                        <strong>Type:</strong> {selectedProduct.type}
+                      </p>
+                      <p>
+                        <strong>Process:</strong> {selectedProduct.process}
+                      </p>
+                      <p>
+                        <strong>Area:</strong> {selectedProduct.Area}
+                      </p>
+                      <p>
+                        <strong>Altitude:</strong> {selectedProduct.Altitude}
+                      </p>
+                      <p>
+                        <strong>Characteristics:</strong>{" "}
+                        {selectedProduct.characteristics.join(", ")}
+                      </p>
+                    </div>
                   </div>
                   <div className="flex flex-col gap-4 mt-8">
                     <button
