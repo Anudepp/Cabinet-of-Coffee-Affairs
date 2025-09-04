@@ -7,107 +7,142 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px 0px" });
 
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({ 
+    firstName: '', 
+    lastName: '', 
+    email: '', 
+    phone: '', 
+    country: '', 
+    message: '' 
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateForm = (fieldValues = formData) => {
-    const tempErrors = { ...errors };
+    const tempErrors: { [key: string]: string } = {};
 
-    if ('name' in fieldValues) {
-      const value = fieldValues.name.trim();
-      if (!value) tempErrors.name = "Name is required.";
-      else if (value.length < 2) tempErrors.name = "Name must be at least 2 characters long.";
-      else if (value.length > 50) tempErrors.name = "Name cannot exceed 50 characters.";
-      else if (!/^[a-zA-Z\s'-]+$/.test(value)) tempErrors.name = "Name can only contain letters, spaces, hyphens, and apostrophes.";
-      else delete tempErrors.name;
-    }
+    const namePattern = /^[a-zA-Z\s'-]+$/;
+    const emailPattern = /^\S+@\S+\.\S+$/;
+    const phonePattern = /^[0-9\s-()]+$/;
 
-    if ('email' in fieldValues) {
-      const value = fieldValues.email.trim();
-      if (!value) tempErrors.email = "Email is required.";
-      else if (!/^\S+@\S+\.\S+$/.test(value)) tempErrors.email = "Please enter a valid email address.";
-      else delete tempErrors.email;
-    }
+    if (!fieldValues.firstName.trim()) tempErrors.firstName = "First name is required.";
+    else if (fieldValues.firstName.trim().length < 2) tempErrors.firstName = "First name must be at least 2 characters.";
+    else if (!namePattern.test(fieldValues.firstName.trim())) tempErrors.firstName = "Invalid characters in first name.";
 
-    if ('message' in fieldValues) {
-      const value = fieldValues.message.trim();
-      if (!value) tempErrors.message = "Message is required.";
-      else if (value.length < 10) tempErrors.message = "Message must be at least 10 characters long.";
-      else if (value.length > 500) tempErrors.message = "Message cannot exceed 500 characters.";
-      else delete tempErrors.message;
-    }
+    if (!fieldValues.lastName.trim()) tempErrors.lastName = "Last name is required.";
+    else if (fieldValues.lastName.trim().length < 2) tempErrors.lastName = "Last name must be at least 2 characters.";
+    else if (!namePattern.test(fieldValues.lastName.trim())) tempErrors.lastName = "Invalid characters in last name.";
+
+    if (!fieldValues.email.trim()) tempErrors.email = "Email is required.";
+    else if (!emailPattern.test(fieldValues.email.trim())) tempErrors.email = "Please enter a valid email address.";
+
+    if (!fieldValues.phone.trim()) tempErrors.phone = "Phone number is required.";
+    else if (!phonePattern.test(fieldValues.phone.trim())) tempErrors.phone = "Please enter a valid phone number.";
+    else if (fieldValues.phone.trim().length < 10) tempErrors.phone = "Phone number is too short.";
+
+    if (!fieldValues.country.trim()) tempErrors.country = "Country is required.";
+
+    if (!fieldValues.message.trim()) tempErrors.message = "Message is required.";
+    else if (fieldValues.message.trim().length < 10) tempErrors.message = "Message must be at least 10 characters.";
+    else if (fieldValues.message.trim().length > 500) tempErrors.message = "Message cannot exceed 500 characters.";
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
-    const updatedForm = { ...formData, [id]: value };
-    setFormData(updatedForm);
-    validateForm({ [id]: value });
+    setFormData(prev => ({ ...prev, [id]: value }));
+    if (Object.keys(errors).length > 0) {
+      validateForm({ ...formData, [id]: value });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       alert("Form submitted successfully!");
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ 
+        firstName: '', 
+        lastName: '', 
+        email: '', 
+        phone: '', 
+        country: '', 
+        message: '' 
+      });
       setErrors({});
     }
   };
 
-  const inputClass = (field) =>
-    `w-full px-4 py-3 border-2 rounded-xl transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#8B7355] focus:border-transparent hover:border-[#8B7355] ${
-      errors[field] ? 'border-red-500' : 'border-[#E7D7C6]'
+  const inputClass = (field: string) =>
+    `w-full px-4 py-3 border-2 rounded-xl bg-[#2C1D14] text-[#F0EAD6] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#B5843E] hover:border-[#B5843E] ${
+      errors[field] ? 'border-red-500' : 'border-[#4a3728]'
     }`;
 
   return (
-    <>
-      {/* ✅ Added pt-32 & scroll-mt-32 so Contact starts below navbar */}
+    <div className="bg-[#2C1D14] text-[#F0EAD6]">
       <section
         id="contact"
         ref={ref}
-        className="bg-gradient-to-br from-[#FDF5E6] to-[#F5E6D3] pt-32 pb-20 px-4 scroll-mt-32"
+        className="pt-32 pb-20 px-4 scroll-mt-32"
       >
         <div className="max-w-6xl mx-auto">
           <motion.h2
-            className="text-4xl font-serif text-center text-[#4A3728] mb-16"
+            className="text-4xl md:text-6xl font-playfair-display text-center mb-16 tracking-wide drop-shadow-lg"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, type: "spring", stiffness: 120 }}
           >
-            Contact Us
+            Get in Touch ☕
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Left side form */}
+          {/* Centered Send a Message form */}
+          <div className="flex justify-center">
             <motion.div
-              className="bg-white rounded-2xl shadow-2xl overflow-hidden"
+              className="bg-[#3D2B20] rounded-2xl shadow-2xl overflow-hidden border border-[#4a3728] max-w-2xl w-full"
               initial={{ opacity: 0, x: -100 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
             >
               <div className="p-8">
-                <h3 className="text-2xl font-serif text-[#4A3728] mb-6 border-b-2 border-[#8B7355] pb-3">
-                  Get in Touch
+                <h3 className="text-3xl font-playfair-display text-[#B5843E] mb-6 border-b-2 border-[#8C5F3A] pb-3 drop-shadow">
+                  Send a Message
                 </h3>
-                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#4A4A4A] mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={inputClass('name')}
-                    />
-                    {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+                <form className="space-y-6 font-poppins" onSubmit={handleSubmit} noValidate>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="firstName" className="block text-sm font-medium text-[#D4C4A7] mb-2">
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        onBlur={() => validateForm({ ...formData, firstName: formData.firstName })}
+                        className={inputClass('firstName')}
+                      
+                      />
+                      {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                    </div>
+                    <div>
+                      <label htmlFor="lastName" className="block text-sm font-medium text-[#D4C4A7] mb-2">
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        onBlur={() => validateForm({ ...formData, lastName: formData.lastName })}
+                        className={inputClass('lastName')}
+                        placeholder="Last Name"
+                      />
+                      {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                    </div>
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#4A4A4A] mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-[#D4C4A7] mb-2">
                       Email
                     </label>
                     <input
@@ -115,12 +150,47 @@ export default function Contact() {
                       id="email"
                       value={formData.email}
                       onChange={handleChange}
+                      onBlur={() => validateForm({ ...formData, email: formData.email })}
                       className={inputClass('email')}
+                      placeholder="you@example.com"
                     />
-                    {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                   </div>
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#4A4A4A] mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-[#D4C4A7] mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      onBlur={() => validateForm({ ...formData, phone: formData.phone })}
+                      className={inputClass('phone')}
+                      placeholder="e.g., +1 234 567 890"
+                    />
+                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="country" className="block text-sm font-medium text-[#D4C4A7] mb-2">
+                      Country
+                    </label>
+                    <input
+                      type="text"
+                      id="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      onBlur={() => validateForm({ ...formData, country: formData.country })}
+                      className={inputClass('country')}
+                      placeholder="Your Country"
+                    />
+                    {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-[#D4C4A7] mb-2">
                       Message
                     </label>
                     <textarea
@@ -128,79 +198,67 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
+                      onBlur={() => validateForm({ ...formData, message: formData.message })}
                       className={inputClass('message')}
+                      placeholder="Your message to us..."
                     ></textarea>
-                    {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
+                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                   </div>
                   <motion.button
                     type="submit"
-                    className="w-full bg-[#8B7355] text-white py-3 rounded-full font-bold hover:bg-[#6F4E37] transition duration-300 shadow-lg disabled:opacity-50"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    disabled={
-                      Object.keys(errors).length > 0 ||
-                      !formData.name ||
-                      !formData.email ||
-                      !formData.message
-                    }
+                    className="w-full bg-[#B5843E] text-white py-3 rounded-full font-poppins font-semibold hover:bg-[#D19B53] transition-colors duration-300 shadow-lg disabled:opacity-50"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Send Message
                   </motion.button>
                 </form>
               </div>
             </motion.div>
-
-            {/* Right side info */}
-            <motion.div
-              className="bg-white rounded-2xl shadow-2xl overflow-hidden"
-              initial={{ opacity: 0, x: 100 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
-              transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-            >
-              <div className="p-8">
-                <h3 className="text-2xl font-serif text-[#4A3728] mb-6 border-b-2 border-[#8B7355] pb-3">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <Phone className="w-8 h-8 text-[#8B7355] flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-[#4A3728]">Phone</h4>
-                      <p className="text-[#4A4A4A]">+61 468301261</p>
-                      <p className="text-[#4A4A4A]">+91 7093126396</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <MessageCircle className="w-8 h-8 text-[#25D366] flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-[#4A3728]">WhatsApp</h4>
-                      
-                      <p className="text-[#4A4A4A]">+61 468301261</p>
-                      <p className="text-[#4A4A4A]">+91 7093126396</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <Mail className="w-8 h-8 text-[#8B7355] flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-[#4A3728]">Email</h4>
-                      <p className="text-[#4A4A4A]">beansinfo@georgesexports.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <MapPin className="w-8 h-8 text-[#8B7355] flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-[#4A3728]">Address</h4>
-                      <p className="text-[#4A4A4A]">123 Coffee Lane, Export District</p>
-                    </div>
-                  </div>
+          </div>
+          
+          {/* Contact Info section below */}
+          <motion.div
+            className="bg-[#3D2B20] rounded-2xl shadow-2xl overflow-hidden border border-[#4a3728] mt-12"
+            initial={{ opacity: 0, y: 100 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+          >
+            <div className="p-8">
+              <h3 className="text-3xl font-playfair-display text-[#B5843E] mb-6 border-b-2 border-[#8C5F3A] pb-3 drop-shadow">
+                Contact Information
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 font-poppins text-[#D4C4A7]">
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <Phone className="w-8 h-8 text-[#B5843E] flex-shrink-0" />
+                  <h4 className="font-semibold text-[#F0EAD6]">Phone</h4>
+                  <p>+61 468301261</p>
+                  <p>+91 7093126396</p>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <MessageCircle className="w-8 h-8 text-[#25D366] flex-shrink-0" />
+                  <h4 className="font-semibold text-[#F0EAD6]">WhatsApp</h4>
+                  <p>+61 468301261</p>
+                  <p>+91 7093126396</p>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <Mail className="w-8 h-8 text-[#B5843E] flex-shrink-0" />
+                  <h4 className="font-semibold text-[#F0EAD6]">Email</h4>
+                  <p>beansinfo@georgesexports.com</p>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <MapPin className="w-8 h-8 text-[#B5843E] flex-shrink-0" />
+                  <h4 className="font-semibold text-[#F0EAD6]">Address</h4>
+                  <p>123 Coffee Lane</p>
+                  <p>Export District</p>
                 </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }
