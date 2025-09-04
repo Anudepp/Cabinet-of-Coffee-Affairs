@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// 1. Import your Footer component
-import Footer from "./Footer"; 
+import Footer from "./Footer";
 
 // ----------------------
 // Types (Unchanged)
@@ -338,7 +337,6 @@ export default function Products() {
                         transition={{ duration: 0.4 }}
                         whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.4)" }}
                         className="bg-[#3D2B20] rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 transform group border border-[#4a3728]"
-                        onClick={() => setSelectedProduct(product)}
                       >
                         <div className="relative overflow-hidden w-full h-56">
                           <img
@@ -347,13 +345,21 @@ export default function Products() {
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         </div>
-                        <div className="p-6 text-center">
+                        <div className="p-6 text-center flex flex-col items-center">
                           <h4 className="font-playfair-display text-2xl text-[#F0EAD6] mb-2 leading-tight drop-shadow-sm">
                             {product.name}
                           </h4>
-                          <span className="inline-block mt-2 px-3 py-1 text-xs font-poppins rounded-full bg-[#8C5F3A] text-white tracking-wider">
-                            {product.process}
-                          </span>
+                          <p className="text-sm text-[#D4C4A7] mb-4">
+                            {product.type} - {product.process}
+                          </p>
+                          <button
+                            onClick={() => setSelectedProduct(product)}
+                            className="w-full px-6 py-3 text-white rounded-full font-poppins text-lg font-medium transition-all duration-300
+                            bg-gradient-to-r from-[#B5843E] to-[#8C5F3A] hover:scale-105 hover:shadow-xl
+                            "
+                          >
+                            View Product
+                          </button>
                         </div>
                       </motion.div>
                     ))}
@@ -364,9 +370,6 @@ export default function Products() {
           </div>
         </div>
       </section>
-
-      {/* 2. Add the Footer component here */}
-      <Footer />
 
       {/* Modal */}
       <AnimatePresence>
@@ -451,6 +454,7 @@ export default function Products() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Footer />
     </>
   );
 }
