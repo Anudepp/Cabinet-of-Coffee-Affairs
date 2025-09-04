@@ -135,7 +135,6 @@ export default function Contact() {
                         onChange={handleChange}
                         onBlur={() => validateForm({ ...formData, lastName: formData.lastName })}
                         className={inputClass('lastName')}
-                        placeholder="Last Name"
                       />
                       {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
                     </div>
@@ -152,7 +151,6 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, email: formData.email })}
                       className={inputClass('email')}
-                      placeholder="you@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                   </div>
@@ -168,7 +166,6 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, phone: formData.phone })}
                       className={inputClass('phone')}
-                      placeholder="e.g., +1 234 567 890"
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                   </div>
@@ -184,7 +181,6 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, country: formData.country })}
                       className={inputClass('country')}
-                      placeholder="Your Country"
                     />
                     {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
                   </div>
@@ -200,7 +196,6 @@ export default function Contact() {
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, message: formData.message })}
                       className={inputClass('message')}
-                      placeholder="Your message to us..."
                     ></textarea>
                     {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                   </div>
