@@ -343,7 +343,7 @@ export default function Products() {
     <>
       <section id="products" className="py-24 bg-[#2C1D14] text-[#F0EAD6]">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg">
+          <h2 className="text-4xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg mt-16">
             Our Curated Selection ☕
           </h2>
 
@@ -501,9 +501,6 @@ export default function Products() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-4 mt-8">
-                    <button className="bg-[#B5843E] text-white px-6 py-3 rounded-lg hover:bg-[#D19B53] transition-colors shadow-lg font-poppins text-lg">
-                      Request a Sample
-                    </button>
                     <button
                       onClick={() => setSelectedProduct(null)}
                       className="border border-[#8C5F3A] text-[#8C5F3A] px-6 py-3 rounded-lg hover:bg-[#8C5F3A] hover:text-white transition-colors font-poppins text-lg"
