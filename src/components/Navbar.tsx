@@ -13,7 +13,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full bg-[#F0EAD6] text-[#2C1D14] shadow-md z-50 transition-colors duration-300">
+    <nav className="fixed w-full bg-[#f0efec] text-[#2C1D14] shadow-md z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-24">
           {/* Left Section: Hamburger Menu + Logo */}
