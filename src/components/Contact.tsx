@@ -1,21 +1,24 @@
 import { Phone, MessageCircle, MapPin, Mail } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Footer from './Footer';
 
 export default function Contact() {
   const ref = useRef(null);
+  const form = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px 0px" });
 
-  const [formData, setFormData] = useState({ 
-    firstName: '', 
-    lastName: '', 
-    email: '', 
-    phone: '', 
-    country: '', 
-    message: '' 
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    country: '',
+    message: ''
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const validateForm = (fieldValues = formData) => {
     const tempErrors: { [key: string]: string } = {};
@@ -57,19 +60,31 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      alert("Form submitted successfully!");
-      setFormData({ 
-        firstName: '', 
-        lastName: '', 
-        email: '', 
-        phone: '', 
-        country: '', 
-        message: '' 
-      });
-      setErrors({});
+      setSubmissionStatus("sending");
+      try {
+        // Replace these placeholder values with your actual EmailJS IDs from .env or VITE config.
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID 
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY 
+
+        await emailjs.sendForm(serviceId, templateId, form.current as HTMLFormElement, publicKey);
+        setSubmissionStatus("success");
+        setFormData({ 
+          firstName: '', 
+          lastName: '', 
+          email: '', 
+          phone: '', 
+          country: '', 
+          message: '' 
+        });
+        setErrors({});
+      } catch (error) {
+        console.error("Failed to send email:", error);
+        setSubmissionStatus("error");
+      }
     }
   };
 
@@ -77,6 +92,19 @@ export default function Contact() {
     `w-full px-4 py-3 border-2 rounded-xl bg-[#2C1D14] text-[#F0EAD6] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#B5843E] hover:border-[#B5843E] ${
       errors[field] ? 'border-red-500' : 'border-[#4a3728]'
     }`;
+
+  const getStatusMessage = () => {
+    switch (submissionStatus) {
+      case "sending":
+        return <p className="text-center text-[#B5843E] font-medium">Sending message...</p>;
+      case "success":
+        return <p className="text-center text-green-500 font-medium">Message sent successfully! We'll be in touch soon.</p>;
+      case "error":
+        return <p className="text-center text-red-500 font-medium">Something went wrong. Please try again later.</p>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="bg-[#2C1D14] text-[#F0EAD6]">
@@ -107,7 +135,7 @@ export default function Contact() {
                 <h3 className="text-3xl font-playfair-display text-[#B5843E] mb-6 border-b-2 border-[#8C5F3A] pb-3 drop-shadow">
                   Send a Message
                 </h3>
-                <form className="space-y-6 font-poppins" onSubmit={handleSubmit} noValidate>
+                <form className="space-y-6 font-poppins" onSubmit={handleSubmit} noValidate ref={form}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-[#D4C4A7] mb-2">
@@ -116,11 +144,11 @@ export default function Contact() {
                       <input
                         type="text"
                         id="firstName"
+                        name="from_first_name" // Added for EmailJS
                         value={formData.firstName}
                         onChange={handleChange}
                         onBlur={() => validateForm({ ...formData, firstName: formData.firstName })}
                         className={inputClass('firstName')}
-                      
                       />
                       {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
                     </div>
@@ -131,6 +159,7 @@ export default function Contact() {
                       <input
                         type="text"
                         id="lastName"
+                        name="from_last_name" // Added for EmailJS
                         value={formData.lastName}
                         onChange={handleChange}
                         onBlur={() => validateForm({ ...formData, lastName: formData.lastName })}
@@ -147,6 +176,7 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
+                      name="from_email" // Added for EmailJS
                       value={formData.email}
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, email: formData.email })}
@@ -162,6 +192,7 @@ export default function Contact() {
                     <input
                       type="tel"
                       id="phone"
+                      name="from_phone" // Added for EmailJS
                       value={formData.phone}
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, phone: formData.phone })}
@@ -177,6 +208,7 @@ export default function Contact() {
                     <input
                       type="text"
                       id="country"
+                      name="from_country" // Added for EmailJS
                       value={formData.country}
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, country: formData.country })}
@@ -192,6 +224,7 @@ export default function Contact() {
                     <textarea
                       id="message"
                       rows={4}
+                      name="message" // Added for EmailJS
                       value={formData.message}
                       onChange={handleChange}
                       onBlur={() => validateForm({ ...formData, message: formData.message })}
@@ -199,11 +232,13 @@ export default function Contact() {
                     ></textarea>
                     {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                   </div>
+                  {getStatusMessage()}
                   <motion.button
                     type="submit"
                     className="w-full bg-[#B5843E] text-white py-3 rounded-full font-poppins font-semibold hover:bg-[#D19B53] transition-colors duration-300 shadow-lg disabled:opacity-50"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    disabled={submissionStatus === 'sending'}
                   >
                     Send Message
                   </motion.button>
