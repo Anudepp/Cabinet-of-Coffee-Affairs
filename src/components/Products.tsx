@@ -64,14 +64,19 @@ export default function Products() {
                   <h3 className="text-3xl md:text-4xl font-playfair-display text-[#F0EAD6] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-[#B5843E] drop-shadow">
                     {category.title}
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
                     {category.products.map((product) => (
                       <motion.div
                         key={product.id}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4 }}
-                        whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.4)" }}
+                        whileHover={{
+                          scale: 1.05,
+                          y: -5,
+                          boxShadow: "0 15px 30px rgba(0,0,0,0.4)",
+                          rotate: 1,
+                        }}
                         className="bg-[#3D2B20] rounded-2xl shadow-xl overflow-hidden cursor-pointer transition-all duration-300 transform group border border-[#4a3728]"
                       >
                         <div className="relative overflow-hidden w-full h-56">
@@ -121,7 +126,7 @@ export default function Products() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="bg-[#F0EAD6] text-[#2C1D14] p-8 rounded-xl shadow-2xl max-w-2xl w-full relative flex flex-col md:flex-row border border-[#8C5F3A]"
+              className="bg-[#F0EAD6] text-[#2C1D14] p-6 sm:p-8 rounded-xl shadow-2xl max-w-full sm:max-w-2xl w-full relative flex flex-col md:flex-row border border-[#8C5F3A]"
             >
               <button
                 onClick={() => setSelectedProduct(null)}
@@ -156,7 +161,7 @@ export default function Products() {
                 </div>
                 <div className="flex-1 space-y-4 md:w-2/5 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-3xl font-playfair-display font-bold mb-4 leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-playfair-display font-bold mb-4 leading-tight drop-shadow">
                       {selectedProduct.name}
                     </h3>
                     <div className="space-y-2 text-sm text-[#2C1D14]">
