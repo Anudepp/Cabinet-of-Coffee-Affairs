@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -9,6 +8,8 @@ export default {
       fontFamily: {
         "playfair-display": ['"Playfair Display"', "serif"],
         poppins: ["Poppins", "sans-serif"],
+        // ✅ Add your new font here. Using a descriptive name is best.
+        "dancing-script": ['"Dancing Script"', "cursive"],
         cursive: ["Dancing Script", "cursive"]
       },
       keyframes: {
