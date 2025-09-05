@@ -84,8 +84,9 @@ export default function Navbar() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
-              <div className="flex flex-col items-center gap-6 py-5 bg-[#F0EAD6]">
+              <div className="flex flex-col items-center gap-6 py-5 bg-[#efeeeb]">
                 {[
+                { name: "Home", path: "/" },
                   { name: "About", path: "/about" },
                   { name: "Products", path: "/products" },
                   { name: "Contact", path: "/contact" },
