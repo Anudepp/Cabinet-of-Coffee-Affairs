@@ -12,7 +12,7 @@ interface CoffeeProduct {
   process: "Washed" | "Unwashed";
   Area: string;
   Altitude: string;
-  characteristics: string[];
+  FlavorProfile: string[];
   image: string;
 }
 
@@ -32,25 +32,26 @@ const coffeeCategories: CoffeeCategory[] = [
     "products": [
       {
         "id": 7,
-        "name": "Arabica Cherry AA",
+        "name": " Cherry AA",
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Southern Highlands",
         "Altitude": "1100-1400m",
-        "characteristics": [
-          "Fruity",
-          "Sweet"
+        "FlavorProfile": [
+          "Mellow",
+          "Earthy",
+          "Chocolatey"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-aa.jpg"
       },
       {
         "id": 8,
-        "name": "Arabica Cherry A",
+        "name": " Cherry A",
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Southern Highlands",
         "Altitude": "1100-1400m",
-        "characteristics": [
+        "FlavorProfile": [
           "Fruity",
           "Sweet"
         ],
@@ -58,12 +59,12 @@ const coffeeCategories: CoffeeCategory[] = [
       },
       {
         "id": 9,
-        "name": "Arabica Cherry AB",
+        "name": " Cherry AB",
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Southern Highlands",
         "Altitude": "1100-1400m",
-        "characteristics": [
+        "FlavorProfile": [
           "Fruity",
           "Sweet"
         ],
@@ -71,12 +72,12 @@ const coffeeCategories: CoffeeCategory[] = [
       },
       {
         "id": 10,
-        "name": "Arabica Cherry PB",
+        "name": " Cherry PB",
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Southern Highlands",
         "Altitude": "1100-1400m",
-        "characteristics": [
+        "FlavorProfile": [
           "Fruity",
           "Sweet"
         ],
@@ -84,12 +85,12 @@ const coffeeCategories: CoffeeCategory[] = [
       },
       {
         "id": 11,
-        "name": "Arabica Cherry C",
+        "name": " Cherry C",
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Southern Highlands",
         "Altitude": "1100-1400m",
-        "characteristics": [
+        "FlavorProfile": [
           "Fruity",
           "Sweet"
         ],
@@ -108,7 +109,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Balanced",
           "Smooth"
         ],
@@ -121,7 +122,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Floral",
           "Caramel finish"
         ],
@@ -134,7 +135,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Floral",
           "Caramel finish"
         ],
@@ -147,7 +148,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Floral",
           "Caramel finish"
         ],
@@ -160,7 +161,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Floral",
           "Caramel finish"
         ],
@@ -173,7 +174,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Central Highlands",
         "Altitude": "1200-1800m",
-        "characteristics": [
+        "FlavorProfile": [
           "Floral",
           "Caramel finish"
         ],
@@ -187,12 +188,12 @@ const coffeeCategories: CoffeeCategory[] = [
     "products": [
       {
         "id": 12,
-        "name": "Robusta Kaapi Royale",
+        "name": " Kaapi Royale",
         "type": "Robusta",
         "process": "Washed",
         "Area": "Coorg",
         "Altitude": "800-1200m",
-        "characteristics": [
+        "FlavorProfile": [
           "Bold",
           "Chocolatey"
         ],
@@ -205,7 +206,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Coorg",
         "Altitude": "800-1200m",
-        "characteristics": [
+        "FlavorProfile": [
           "Bold",
           "Chocolatey"
         ],
@@ -218,7 +219,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Coorg",
         "Altitude": "800-1200m",
-        "characteristics": [
+        "FlavorProfile": [
           "Bold",
           "Chocolatey"
         ],
@@ -231,7 +232,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Coorg",
         "Altitude": "800-1200m",
-        "characteristics": [
+        "FlavorProfile": [
           "Bold",
           "Chocolatey"
         ],
@@ -244,7 +245,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Washed",
         "Area": "Coorg",
         "Altitude": "800-1200m",
-        "characteristics": [
+        "FlavorProfile": [
           "Bold",
           "Chocolatey"
         ],
@@ -263,7 +264,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Unwashed",
         "Area": "Eastern Ghats",
         "Altitude": "600-1000m",
-        "characteristics": [
+        "FlavorProfile": [
           "Strong body",
           "Earthy"
         ],
@@ -276,7 +277,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Unwashed",
         "Area": "Eastern Ghats",
         "Altitude": "600-1000m",
-        "characteristics": [
+        "FlavorProfile": [
           "Strong body",
           "Earthy"
         ],
@@ -289,7 +290,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Unwashed",
         "Area": "Eastern Ghats",
         "Altitude": "600-1000m",
-        "characteristics": [
+        "FlavorProfile": [
           "Strong body",
           "Earthy"
         ],
@@ -302,7 +303,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Unwashed",
         "Area": "Eastern Ghats",
         "Altitude": "600-1000m",
-        "characteristics": [
+        "FlavorProfile": [
           "Strong body",
           "Earthy"
         ],
@@ -315,7 +316,7 @@ const coffeeCategories: CoffeeCategory[] = [
         "process": "Unwashed",
         "Area": "Eastern Ghats",
         "Altitude": "600-1000m",
-        "characteristics": [
+        "FlavorProfile": [
           "Strong body",
           "Earthy"
         ],
@@ -504,8 +505,8 @@ export default function Products() {
                         <strong>Altitude:</strong> {selectedProduct.Altitude}
                       </p>
                       <p>
-                        <strong>Characteristics:</strong>{" "}
-                        {selectedProduct.characteristics.join(", ")}
+                        <strong>FlavorProfile:</strong>{" "}
+                        {selectedProduct.FlavorProfile.join(", ")}
                       </p>
                     </div>
                   </div>

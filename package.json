@@ -12,6 +12,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.2.0",
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.344.0",
