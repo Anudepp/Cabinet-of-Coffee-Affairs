@@ -121,11 +121,11 @@ export default function Products() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="bg-[#3D2B20] text-[#F0EAD6] p-8 rounded-xl shadow-2xl max-w-2xl w-full relative flex flex-col border border-[#8C5F3A]"
+              className="bg-[#F0EAD6] text-[#2C1D14] p-8 rounded-xl shadow-2xl max-w-2xl w-full relative flex flex-col md:flex-row border border-[#8C5F3A]"
             >
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 text-[#F0EAD6] hover:text-[#B5843E] transition-colors z-10"
+                className="absolute top-4 right-4 text-[#2C1D14] hover:text-[#B5843E] transition-colors z-10"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,8 +142,8 @@ export default function Products() {
                   />
                 </svg>
               </button>
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0 w-full md:w-3/5 relative overflow-hidden rounded-lg border border-[#8C5F3A]">
+              <div className="flex flex-col md:flex-row gap-6 w-full">
+                <div className="flex-shrink-0 w-full md:w-3/5 relative overflow-hidden rounded-lg">
                   <motion.img
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
@@ -156,24 +156,24 @@ export default function Products() {
                 </div>
                 <div className="flex-1 space-y-4 md:w-2/5 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-3xl font-playfair-display mb-2 drop-shadow-sm leading-tight overflow-hidden">
+                    <h3 className="text-3xl font-playfair-display font-bold mb-4 leading-tight">
                       {selectedProduct.name}
                     </h3>
-                    <div className="space-y-2 text-sm text-[#D4C4A7] opacity-90">
-                      <p>
+                    <div className="space-y-2 text-sm text-[#2C1D14]">
+                      <p className="font-playfair-display text-base">
                         <strong>Type:</strong> {selectedProduct.type}
                       </p>
-                      <p>
+                      <p className="font-playfair-display text-base">
                         <strong>Process:</strong> {selectedProduct.process}
                       </p>
-                      <p>
+                      <p className="font-playfair-display text-base">
                         <strong>Area:</strong> {selectedProduct.Area}
                       </p>
-                      <p>
+                      <p className="font-playfair-display text-base">
                         <strong>ScreenSize:</strong> {selectedProduct.ScreenSize}
                       </p>
-                      <p>
-                        <strong>FlavorProfile:</strong>{" "}
+                      <p className="font-playfair-display text-base">
+                        <strong>Flavor Profile:</strong>{" "}
                         {selectedProduct.FlavorProfile.join(", ")}
                       </p>
                     </div>
@@ -181,7 +181,7 @@ export default function Products() {
                   <div className="flex flex-col gap-4 mt-8">
                     <button
                       onClick={() => setSelectedProduct(null)}
-                      className="border border-[#8C5F3A] text-[#8C5F3A] px-6 py-3 rounded-lg hover:bg-[#8C5F3A] hover:text-white transition-colors font-poppins text-lg"
+                      className="w-full bg-[#B5843E] text-white py-3 rounded-full font-poppins font-semibold hover:bg-[#D19B53] transition-colors duration-300 shadow-lg"
                     >
                       Close
                     </button>
