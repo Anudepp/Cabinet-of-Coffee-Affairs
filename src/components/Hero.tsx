@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 
 const images = ["/HeroImage1.jpeg", "/HeroImage2.jpeg", "/HeroImage3.jpeg"];
 
@@ -31,56 +32,57 @@ export default function Hero() {
         className="relative w-full h-screen bg-black pt-24 overflow-hidden"
       >
         {/* Carousel Images */}
-        <div className="relative h-full w-full flex items-center justify-center">
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ease-in-out ${
-                index === current ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={img}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-                //className="max-h-full max-w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        {images.map((img, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === current ? 1 : 0 }}
+            transition={{ duration: 1.5 }}
+            className={`absolute inset-0 flex items-center justify-center`}
+          >
+            <img
+              src={img}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear transform-gpu"
+              style={{
+                transform: index === current ? "scale(1.05)" : "scale(1)",
+              }}
+            />
+          </motion.div>
+        ))}
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60 pointer-events-none" />
 
-        {/* Tagline */}
-        <div className="absolute top-28 left-1/2 transform -translate-x-1/2 z-20">
-          <p
-            className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent drop-shadow-lg"
-            style={{
-              backgroundImage: "linear-gradient(to right, #ffd700, #ffeb3b, #ffffff)",
-              WebkitTextFillColor: "transparent",
-              WebkitBackgroundClip: "text",
-              textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
-            }}
-          >
-            From Farm to Globe
-          </p>
+        {/* Tagline Container at the top */}
+        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-6 text-center">
+    <p
+  className="text-2xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg"
+  style={{
+    backgroundImage: "linear-gradient(to right, #B5843E, #FFD700, #D19B53)",
+    WebkitTextFillColor: "transparent",
+    WebkitBackgroundClip: "text",
+    textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
+  }}
+>
+  From Farm to Globe
+</p>
         </div>
 
         {/* Dots Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === current ? "bg-white" : "bg-gray-400"
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                index === current ? "bg-[#F0EAD6]" : "bg-white/50 hover:bg-white"
               }`}
             />
           ))}
         </div>
 
-        {/* ✅ WhatsApp Floating Button */}
+        {/* WhatsApp Floating Button */}
         <a
           href={whatsappLink}
           target="_blank"
@@ -97,7 +99,6 @@ export default function Hero() {
         className="relative w-full bg-gradient-to-b from-[#4b2e2e] to-[#f7e9d7] py-20 px-6 md:px-20"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#4b2e2e]/80 to-transparent"></div>
-
         <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-12">
           {/* Intro Text */}
           <div className="text-white">
@@ -130,7 +131,6 @@ export default function Hero() {
                   global demand for high-quality beans.
                 </p>
               </div>
-
               <div className="p-4 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
                 <h3 className="text-xl font-semibold text-[#6b4226] mb-2">
                   Quality Assurance
@@ -140,7 +140,6 @@ export default function Hero() {
                   micro-contamination, ensuring safety and consistency.
                 </p>
               </div>
-
               <div className="p-4 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
                 <h3 className="text-xl font-semibold text-[#6b4226] mb-2">
                   Efficient Logistics
@@ -150,7 +149,6 @@ export default function Hero() {
                   export process tailored to international clients.
                 </p>
               </div>
-
               <div className="p-4 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
                 <h3 className="text-xl font-semibold text-[#6b4226] mb-2">
                   Global Reach
@@ -161,7 +159,6 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-
             <p className="mt-10 text-lg italic text-gray-700">
               For us, coffee export is not just a business—it’s a passion. We
               take pride in being part of every cup brewed with our beans,
