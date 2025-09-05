@@ -11,7 +11,7 @@ interface CoffeeProduct {
   type: "Arabica" | "Robusta";
   process: "Washed" | "Unwashed";
   Area: string;
-  Altitude: string;
+  ScreenSize: string;
   FlavorProfile: string[];
   image: string;
 }
@@ -35,8 +35,8 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Cherry AA",
         "type": "Arabica",
         "process": "Unwashed",
-        "Area": "Southern Highlands",
-        "Altitude": "1100-1400m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 18(7.10mm)",
         "FlavorProfile": [
           "Mellow",
           "Earthy",
@@ -49,11 +49,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Cherry A",
         "type": "Arabica",
         "process": "Unwashed",
-        "Area": "Southern Highlands",
-        "Altitude": "1100-1400m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 17 ( 6.65mm )",
         "FlavorProfile": [
-          "Fruity",
-          "Sweet"
+          "caramel",
+          "fruity",
+          "floral"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-a.jpg"
       },
@@ -62,11 +63,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Cherry AB",
         "type": "Arabica",
         "process": "Unwashed",
-        "Area": "Southern Highlands",
-        "Altitude": "1100-1400m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 15 ( 6.00mm )",
         "FlavorProfile": [
-          "Fruity",
-          "Sweet"
+          "cocoa",
+          "spice",
+          "mild fruit"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-ab.jpg"
       },
@@ -75,11 +77,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Cherry PB",
         "type": "Arabica",
         "process": "Unwashed",
-        "Area": "Southern Highlands",
-        "Altitude": "1100-1400m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Fruity",
-          "Sweet"
+          "cocoa",
+          "dried fruit",
+          "floral"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-pb.jpg"
       },
@@ -88,11 +91,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Cherry C",
         "type": "Arabica",
         "process": "Unwashed",
-        "Area": "Southern Highlands",
-        "Altitude": "1100-1400m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Fruity",
-          "Sweet"
+          "rustic",
+          "mild chocolate",
+          "woody"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-c.jpg"
       }
@@ -107,11 +111,10 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Mysore Nuggets",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 19 ( 7.50mm )",
         "FlavorProfile": [
-          "Balanced",
-          "Smooth"
+          "nutty", "woody", "earthy notes"
         ],
         "image": "/Beans/Arabica/Washed/mysore-nuggets.jpg"
       },
@@ -120,11 +123,11 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Plantation AA",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 18 ( 7.10mm )",
         "FlavorProfile": [
-          "Floral",
-          "Caramel finish"
+          "fruity",
+          "floral"
         ],
         "image": "/Beans/Arabica/Washed/plantation-aa.jpg"
       },
@@ -133,11 +136,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Plantation A",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 17 ( 6.65mm )",
         "FlavorProfile": [
-          "Floral",
-          "Caramel finish"
+          "melon",
+          "Indian spice",
+          "chocolate"
         ],
         "image": "/Beans/Arabica/Washed/plantation-a.jpg"
       },
@@ -146,11 +150,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Plantation B",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 15 ( 6.00mm )",
         "FlavorProfile": [
-          "Floral",
-          "Caramel finish"
+          "citrus",
+          "caramel",
+          "nuts"
         ],
         "image": "/Beans/Arabica/Washed/plantation-b.jpg"
       },
@@ -159,11 +164,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Plantation PB",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Floral",
-          "Caramel finish"
+          "chocolate",
+          "nuts",
+          "Indian spices"
         ],
         "image": "/Beans/Arabica/Washed/plantation-pb.jpg"
       },
@@ -172,11 +178,10 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Plantation C",
         "type": "Arabica",
         "process": "Washed",
-        "Area": "Central Highlands",
-        "Altitude": "1200-1800m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Floral",
-          "Caramel finish"
+          "sweet taste with hints of chocolate and nuts"
         ],
         "image": "/Beans/Arabica/Washed/plantation-c.jpg"
       }
@@ -191,11 +196,13 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": " Kaapi Royale",
         "type": "Robusta",
         "process": "Washed",
-        "Area": "Coorg",
-        "Altitude": "800-1200m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 19 ( 7.50mm )",
         "FlavorProfile": [
-          "Bold",
-          "Chocolatey"
+          "chocolate",
+          "dark cocoa",
+          "woody",
+          "earthy"
         ],
         "image": "/Beans/Robusta/Washed/kaapi-royale.jpg"
       },
@@ -204,11 +211,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Parchment AA",
         "type": "Robusta",
         "process": "Washed",
-        "Area": "Coorg",
-        "Altitude": "800-1200m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 18 ( 7.10mm )",
         "FlavorProfile": [
-          "Bold",
-          "Chocolatey"
+          "cocoa",
+          "nutty",
+          "mild spice"
         ],
         "image": "/Beans/Robusta/Washed/parchment-aa.jpg"
       },
@@ -217,11 +225,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Parchment AB",
         "type": "Robusta",
         "process": "Washed",
-        "Area": "Coorg",
-        "Altitude": "800-1200m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 15 ( 6.00mm )",
         "FlavorProfile": [
-          "Bold",
-          "Chocolatey"
+          "dark chocolate",
+          "woody",
+          "nutty tones"
         ],
         "image": "/Beans/Robusta/Washed/parchment-ab.jpg"
       },
@@ -230,11 +239,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Parchment C",
         "type": "Robusta",
         "process": "Washed",
-        "Area": "Coorg",
-        "Altitude": "800-1200m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Bold",
-          "Chocolatey"
+          "rustic",
+          "woody",
+          "earthy"
         ],
         "image": "/Beans/Robusta/Washed/parchment-c.jpg"
       },
@@ -243,11 +253,11 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Parchment PB",
         "type": "Robusta",
         "process": "Washed",
-        "Area": "Coorg",
-        "Altitude": "800-1200m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Bold",
-          "Chocolatey"
+          "bitter-sweet cocoa",
+          "earthy"
         ],
         "image": "/Beans/Robusta/Washed/parchment-pb.jpg"
       }
@@ -262,11 +272,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Cherry AAA",
         "type": "Robusta",
         "process": "Unwashed",
-        "Area": "Eastern Ghats",
-        "Altitude": "600-1000m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 19 ( 7.50mm )",
         "FlavorProfile": [
-          "Strong body",
-          "Earthy"
+          "dark chocolate",
+          "nutty",
+          "spice notes"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-aaa.jpg"
       },
@@ -275,11 +286,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Cherry AA",
         "type": "Robusta",
         "process": "Unwashed",
-        "Area": "Eastern Ghats",
-        "Altitude": "600-1000m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 18 ( 7.10mm )",
         "FlavorProfile": [
-          "Strong body",
-          "Earthy"
+          "earthy",
+          "nutty",
+          "dark cocoa"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-aa.jpg"
       },
@@ -288,11 +300,11 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Cherry A",
         "type": "Robusta",
         "process": "Unwashed",
-        "Area": "Eastern Ghats",
-        "Altitude": "600-1000m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 17 ( 6.65mm )",
         "FlavorProfile": [
-          "Strong body",
-          "Earthy"
+          "woody",
+          "mild spiciness"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-a.jpg"
       },
@@ -301,11 +313,12 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Cherry AB",
         "type": "Robusta",
         "process": "Unwashed",
-        "Area": "Eastern Ghats",
-        "Altitude": "600-1000m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 15 ( 6.00mm )",
         "FlavorProfile": [
-          "Strong body",
-          "Earthy"
+          "earthy",
+          "woody",
+          "chocolate"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-ab.jpg"
       },
@@ -314,11 +327,13 @@ const coffeeCategories: CoffeeCategory[] = [
         "name": "Cherry PB",
         "type": "Robusta",
         "process": "Unwashed",
-        "Area": "Eastern Ghats",
-        "Altitude": "600-1000m",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
         "FlavorProfile": [
-          "Strong body",
-          "Earthy"
+          "strong",
+          "bitter",
+          "peppery",
+          "cocoa"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-pb.jpg"
       }
@@ -502,7 +517,7 @@ export default function Products() {
                         <strong>Area:</strong> {selectedProduct.Area}
                       </p>
                       <p>
-                        <strong>Altitude:</strong> {selectedProduct.Altitude}
+                        <strong>ScreenSize:</strong> {selectedProduct.ScreenSize}
                       </p>
                       <p>
                         <strong>FlavorProfile:</strong>{" "}
