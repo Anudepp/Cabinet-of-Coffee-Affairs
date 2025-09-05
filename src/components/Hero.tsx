@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaWhatsapp } from "react-icons/fa"; 
+import { FaWhatsapp } from "react-icons/fa";
 import Footer from "./Footer";
 
 const images = ["/HeroImage1.jpeg", "/HeroImage2.jpeg", "/HeroImage3.jpeg"];
@@ -53,19 +53,19 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 pointer-events-none" />
 
         {/* Tagline */}
-        <div className="absolute top-28 left-28 md:left-36 z-20">
-  <p
-    className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent drop-shadow-lg"
-    style={{
-      backgroundImage: "linear-gradient(to right, #ffd700, #ffeb3b, #ffffff)",
-      WebkitTextFillColor: "transparent",
-      WebkitBackgroundClip: "text",
-      textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
-    }}
-  >
-    From Farm to Globe
-  </p>
-</div>
+        <div className="absolute top-28 left-1/2 transform -translate-x-1/2 z-20">
+          <p
+            className="text-3xl md:text-4xl font-cursive italic bg-clip-text text-transparent drop-shadow-lg"
+            style={{
+              backgroundImage: "linear-gradient(to right, #ffd700, #ffeb3b, #ffffff)",
+              WebkitTextFillColor: "transparent",
+              WebkitBackgroundClip: "text",
+              textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
+            }}
+          >
+            From Farm to Globe
+          </p>
+        </div>
 
         {/* Dots Indicator */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
