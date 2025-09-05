@@ -16,8 +16,40 @@ export default function Navbar() {
     <nav className="fixed w-full bg-[#f0efec] text-[#2C1D14] shadow-md z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-24">
-          {/* Left Section: Hamburger Menu + Logo */}
-          <div className="flex items-center gap-4">
+          {/* Logo Section */}
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate("/")}>
+            <img
+              src="/logo.png"
+              alt="Georges Coffee Logo"
+              className="h-20 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            />
+            <span className="text-3xl md:text-5xl font-cursive drop-shadow-lg text-[#2C1D14]">
+              Georges Coffee
+            </span>
+          </div>
+
+          {/* Right Section: Desktop Menu + Mobile Hamburger */}
+          <div className="flex items-center gap-10">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-10">
+              {[
+                { name: "Home", path: "/" },
+                { name: "About", path: "/about" },
+                { name: "Products", path: "/products" },
+                { name: "Contact", path: "/contact" },
+              ].map((item) => (
+                <div key={item.name} className="relative group">
+                  <button
+                    onClick={() => handleNavigate(item.path)}
+                    className="text-xl font-poppins font-bold transition-all duration-300 hover:text-[#B5843E] relative overflow-hidden"
+                  >
+                    {item.name}
+                    <span className="absolute left-0 bottom-0 w-full h-[3px] bg-[#B5843E] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
             {/* Hamburger Menu Button for Mobile */}
             <button
               className="md:hidden p-2 text-[#2C1D14] hover:text-[#B5843E] transition-colors duration-300"
@@ -39,38 +71,6 @@ export default function Navbar() {
                 </motion.div>
               </AnimatePresence>
             </button>
-
-            {/* Logo */}
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate("/")}>
-              <img
-                src="/logo.png"
-                alt="Georges Coffee Logo"
-                className="h-20 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
-              <span className="text-3xl md:text-5xl font-cursive drop-shadow-lg text-[#2C1D14]">
-                Georges Coffee
-              </span>
-            </div>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-10">
-            {[
-              { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
-              { name: "Products", path: "/products" },
-              { name: "Contact", path: "/contact" },
-            ].map((item) => (
-              <div key={item.name} className="relative group">
-                <button
-                  onClick={() => handleNavigate(item.path)}
-                  className="text-xl font-poppins font-bold transition-all duration-300 hover:text-[#B5843E] relative overflow-hidden"
-                >
-                  {item.name}
-                  <span className="absolute left-0 bottom-0 w-full h-[3px] bg-[#B5843E] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
-                </button>
-              </div>
-            ))}
           </div>
         </div>
 
