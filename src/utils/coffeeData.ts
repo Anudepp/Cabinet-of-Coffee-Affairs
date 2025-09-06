@@ -28,7 +28,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 18(7.10mm)",
+        "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
           "Mellow",
           "Earthy",
@@ -42,7 +42,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 17 ( 6.65mm )",
+        "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
           "caramel",
           "fruity",
@@ -56,7 +56,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 15 ( 6.00mm )",
+        "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
           "cocoa",
           "spice",
@@ -70,7 +70,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "cocoa",
           "dried fruit",
@@ -84,7 +84,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "rustic",
           "mild chocolate",
@@ -104,7 +104,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 19 ( 7.50mm )",
+        "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
           "nutty", "woody", "earthy notes"
         ],
@@ -116,7 +116,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 18 ( 7.10mm )",
+        "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
           "fruity",
           "floral"
@@ -129,7 +129,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 17 ( 6.65mm )",
+        "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
           "melon",
           "Indian spice",
@@ -143,7 +143,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 15 ( 6.00mm )",
+        "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
           "citrus",
           "caramel",
@@ -157,7 +157,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "chocolate",
           "nuts",
@@ -171,7 +171,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Arabica",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "sweet taste with hints of chocolate and nuts"
         ],
@@ -189,7 +189,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 19 ( 7.50mm )",
+        "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
           "dark chocolate",
           "nutty",
@@ -203,7 +203,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 18 ( 7.10mm )",
+        "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
           "earthy",
           "nutty",
@@ -217,7 +217,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 17 ( 6.65mm )",
+        "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
           "woody",
           "mild spiciness"
@@ -230,7 +230,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 15 ( 6.00mm )",
+        "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
           "earthy",
           "woody",
@@ -244,7 +244,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Unwashed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "strong",
           "bitter",
@@ -265,7 +265,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 19 ( 7.50mm )",
+        "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
           "chocolate",
           "dark cocoa",
@@ -280,7 +280,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 18 ( 7.10mm )",
+        "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
           "cocoa",
           "nutty",
@@ -294,7 +294,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 15 ( 6.00mm )",
+        "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
           "dark chocolate",
           "woody",
@@ -308,7 +308,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "rustic",
           "woody",
@@ -322,7 +322,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "type": "Robusta",
         "process": "Washed",
         "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
           "bitter-sweet cocoa",
           "earthy"
