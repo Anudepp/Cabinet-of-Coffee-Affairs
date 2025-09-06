@@ -1,44 +1,35 @@
 import { Leaf, Coffee, Globe } from "lucide-react";
-import { LucideIcon } from "lucide-react";
 import React from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 
-// Define props interface for FeatureCard
-interface FeatureCardProps {
-  Icon: LucideIcon;
-  title: string;
-  description: string;
-}
+// Reusable FeatureCard Component
+const FeatureCard = ({ Icon, title, description }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="p-6 bg-[#3D2B20] border border-[#8C5F3A] rounded-2xl shadow-xl text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+    >
+      <div className="flex justify-center mb-4">
+        <Icon className="h-12 w-12 text-[#B5843E]" />
+      </div>
+      <h3 className="text-2xl font-playfair-display font-semibold mb-4 text-[#B5843E] drop-shadow-md">
+        {title}
+      </h3>
+      <p className="text-[#D4C4A7] text-base leading-relaxed font-poppins">
+        {description}
+      </p>
+    </motion.div>
+  );
+};
 
-// Reusable FeatureCard Component with typed props
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  Icon,
-  title,
-  description,
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="p-6 bg-[#3D2B20] border border-[#8C5F3A] rounded-2xl shadow-xl text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl"
-  >
-    <div className="flex justify-center mb-4">
-      <Icon className="h-12 w-12 text-[#B5843E]" />
-    </div>
-    <h3 className="text-2xl font-playfair-display font-semibold mb-4 text-[#B5843E] drop-shadow-md">{title}</h3>
-    <p className="text-[#D4C4A7] text-base leading-relaxed font-poppins">{description}</p>
-  </motion.div>
-);
-
-const About: React.FC = () => {
+const About = () => {
   return (
     <div className="bg-[#2C1D14] text-[#F0EAD6] min-h-screen">
       {/* About Section */}
-      <section
-        id="about"
-        className="relative pt-32 pb-20 scroll-mt-32"
-      >
+      <section id="about" className="relative pt-32 pb-20 scroll-mt-32">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Section Title */}
           <h2 className="text-5xl md:text-6xl font-playfair-display text-center text-[#F0EAD6] mb-16 tracking-wide drop-shadow-lg">
@@ -86,13 +77,25 @@ const About: React.FC = () => {
               </h3>
               <div className="space-y-4 text-[#D4C4A7] leading-relaxed font-poppins">
                 <p>
-                  At Georges Imports and Exports Pvt Ltd, we proudly present Georges Coffee – Farm to Globe. Certified by the Coffee Board of India, we are trusted merchant exporters, we specialize in sourcing the finest Arabica and Robusta green coffee beans directly from the plantations of Karnataka and Kerala, regions known for their fertile soil and rich coffee heritage.
+                  At Georges Imports and Exports Pvt Ltd, we proudly present
+                  Georges Coffee – Farm to Globe. Certified by the Coffee Board
+                  of India, we are trusted merchant exporters, we specialize in
+                  sourcing the finest Arabica and Robusta green coffee beans
+                  directly from the plantations of Karnataka and Kerala, regions
+                  known for their fertile soil and rich coffee heritage.
                 </p>
                 <p>
-                  Our tagline, “Farm to Globe,” reflects this journey. We work closely with growers to source beans at their origin, preserve their natural character through careful processing and sterilization, and deliver them worldwide with efficient logistics and strict quality control. From the farm to the global market, we ensure authenticity at every step.
+                  Our tagline, “Farm to Globe,” reflects this journey. We work
+                  closely with growers to source beans at their origin, preserve
+                  their natural character through careful processing and
+                  sterilization, and deliver them worldwide with efficient
+                  logistics and strict quality control. From the farm to the
+                  global market, we ensure authenticity at every step.
                 </p>
                 <p>
-                  More than a product, coffee is our passion. From the hands of farmers to cups worldwide, Georges Coffee truly lives the promise of “Farm to Globe.”
+                  More than a product, coffee is our passion. From the hands of
+                  farmers to cups worldwide, Georges Coffee truly lives the
+                  promise of “Farm to Globe.”
                 </p>
               </div>
             </div>

@@ -1,5 +1,3 @@
-// src/components/Contact.jsx
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Footer from "./Footer";
