@@ -2,6 +2,7 @@ import { Leaf, Coffee, Globe } from "lucide-react";
 import React from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import WhatsAppButton from "./WhatsAppButton";
 
 // Reusable FeatureCard Component
 const FeatureCard = ({ Icon, title, description }) => {
@@ -139,6 +140,7 @@ const About = () => {
         </div>
       </section>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

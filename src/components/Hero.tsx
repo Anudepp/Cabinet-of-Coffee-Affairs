@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { FaWhatsapp } from "react-icons/fa";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import WhatsAppButton from "./WhatsAppButton";
 
 const images = ["/HeroImage1.jpeg", "/HeroImage2.jpeg", "/HeroImage3.jpeg"];
 
@@ -17,15 +17,9 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ WhatsApp link
-  const dealerNumber = "+61468301261";
-  const message = "Hello, I am interested in your coffee beans";
-  const whatsappLink = `https://wa.me/${dealerNumber}?text=${encodeURIComponent(
-    message
-  )}`;
-
   return (
     <>
+      <WhatsAppButton />
       {/* HERO SECTION */}
       <div
         id="home"
@@ -75,17 +69,8 @@ export default function Hero() {
             />
           ))}
         </div>
-
-        {/* WhatsApp Floating Button */}
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition z-50 flex items-center space-x-2 animate-pulse"
-        >
-          <FaWhatsapp size={28} />
-          <span className="text-sm font-semibold pr-2">Chat Now</span>
-        </a>
+        
+        {/* Removed WhatsApp Floating Button */}
       </div>
 
       {/* WHAT WE DO SECTION */}
