@@ -175,7 +175,7 @@ export default function Products() {
                         <strong>Area:</strong> {selectedProduct.Area}
                       </p>
                       <p className="font-playfair-display text-base">
-                        <strong>ScreenSize:</strong> {selectedProduct.ScreenSize}
+                        <strong>Screen Size:</strong> {selectedProduct.ScreenSize}
                       </p>
                       <p className="font-playfair-display text-base">
                         <strong>Flavor Profile:</strong>{" "}
