@@ -23,7 +23,7 @@ export default function Products() {
 
           {/* Tabs */}
           <div className="flex justify-center mb-16">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="sync">
               {["Arabica", "Robusta"].map((tab) => (
                 <motion.button
                   key={tab}
@@ -53,7 +53,7 @@ export default function Products() {
 
           {/* Categories */}
           <div className="space-y-24">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="sync">
               {filteredCategories.map((category) => (
                 <motion.div
                   key={category.title}
