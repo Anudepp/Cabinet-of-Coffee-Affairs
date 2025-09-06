@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
 import { coffeeCategories, CoffeeProduct } from "../utils/coffeeData";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<CoffeeProduct | null>(
@@ -197,6 +198,7 @@ export default function Products() {
           </motion.div>
         )}
       </AnimatePresence>
+       <WhatsAppButton />
       <Footer />
     </>
   );
