@@ -1,4 +1,3 @@
-// src/utils/coffeeData.ts
 
 export interface CoffeeProduct {
   id: number;
@@ -44,9 +43,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
-          "caramel",
-          "fruity",
-          "floral"
+          "Caramel",
+          "Fruity",
+          "Floral"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-a.jpg"
       },
@@ -58,9 +57,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
-          "cocoa",
-          "spice",
-          "mild fruit"
+          "Cocoa",
+          "Spice",
+          "Mild fruit"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-ab.jpg"
       },
@@ -72,9 +71,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "cocoa",
-          "dried fruit",
-          "floral"
+          "Cocoa",
+          "Dried fruit",
+          "Floral"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-pb.jpg"
       },
@@ -86,9 +85,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "rustic",
-          "mild chocolate",
-          "woody"
+          "Rustic",
+          "Mild chocolatey",
+          "Woody"
         ],
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-c.jpg"
       }
@@ -106,7 +105,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
-          "nutty", "woody", "earthy notes"
+          "Nutty", "Woody", "Earthy notes"
         ],
         "image": "/Beans/Arabica/Washed/mysore-nuggets.jpg"
       },
@@ -118,8 +117,8 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
-          "fruity",
-          "floral"
+          "Fruity",
+          "Floral"
         ],
         "image": "/Beans/Arabica/Washed/plantation-aa.jpg"
       },
@@ -131,9 +130,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
-          "melon",
+          "Melon",
           "Indian spice",
-          "chocolate"
+          "Chocolatey"
         ],
         "image": "/Beans/Arabica/Washed/plantation-a.jpg"
       },
@@ -145,9 +144,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
-          "citrus",
-          "caramel",
-          "nuts"
+          "Citrus",
+          "Caramel",
+          "Nutty"
         ],
         "image": "/Beans/Arabica/Washed/plantation-b.jpg"
       },
@@ -159,8 +158,8 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "chocolate",
-          "nuts",
+          "Chocolatey",
+          "Nutty",
           "Indian spices"
         ],
         "image": "/Beans/Arabica/Washed/plantation-pb.jpg"
@@ -173,7 +172,8 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "sweet taste with hints of chocolate and nuts"
+          "Chocolatey",
+          "Nutty"
         ],
         "image": "/Beans/Arabica/Washed/plantation-c.jpg"
       }
@@ -191,9 +191,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
-          "dark chocolate",
-          "nutty",
-          "spice notes"
+          "Dark chocolate",
+          "Nutty",
+          "Spice notes"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-aaa.jpg"
       },
@@ -205,9 +205,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
-          "earthy",
-          "nutty",
-          "dark cocoa"
+          "Earthy",
+          "Nutty",
+          "Dark cocoa"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-aa.jpg"
       },
@@ -219,8 +219,8 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "17 (6.65mm)",
         "FlavorProfile": [
-          "woody",
-          "mild spiciness"
+          "Woody",
+          "Mild spiciness"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-a.jpg"
       },
@@ -232,9 +232,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
-          "earthy",
-          "woody",
-          "chocolate"
+          "Earthy",
+          "Woody",
+          "Chocolatey"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-ab.jpg"
       },
@@ -246,10 +246,10 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "strong",
-          "bitter",
-          "peppery",
-          "cocoa"
+          "Strong",
+          "Bitter",
+          "Peppery",
+          "Cocoa"
         ],
         "image": "/Beans/Robusta/Unwashed/cherry-pb.jpg"
       }
@@ -267,10 +267,10 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "19 (7.50mm)",
         "FlavorProfile": [
-          "chocolate",
-          "dark cocoa",
-          "woody",
-          "earthy"
+          "Chocolatey",
+          "Dark cocoa",
+          "Woody",
+          "Earthy"
         ],
         "image": "/Beans/Robusta/Washed/kaapi-royale.jpg"
       },
@@ -282,9 +282,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "18 (7.10mm)",
         "FlavorProfile": [
-          "cocoa",
-          "nutty",
-          "mild spice"
+          "Cocoa",
+          "Nutty",
+          "Mild spice"
         ],
         "image": "/Beans/Robusta/Washed/parchment-aa.jpg"
       },
@@ -296,9 +296,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "15 (6.00mm)",
         "FlavorProfile": [
-          "dark chocolate",
-          "woody",
-          "nutty tones"
+          "Dark chocolate",
+          "Woody",
+          "Nutty tones"
         ],
         "image": "/Beans/Robusta/Washed/parchment-ab.jpg"
       },
@@ -310,9 +310,9 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "rustic",
-          "woody",
-          "earthy"
+          "Rustic",
+          "Woody",
+          "Earthy"
         ],
         "image": "/Beans/Robusta/Washed/parchment-c.jpg"
       },
@@ -324,8 +324,8 @@ export const coffeeCategories: CoffeeCategory[] = [
         "Area": "Karnataka, Kerala",
         "ScreenSize": "13 (5.00mm)",
         "FlavorProfile": [
-          "bitter-sweet cocoa",
-          "earthy"
+          "Bitter-sweet cocoa",
+          "Earthy"
         ],
         "image": "/Beans/Robusta/Washed/parchment-pb.jpg"
       }
