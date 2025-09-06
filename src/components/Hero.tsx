@@ -56,17 +56,16 @@ export default function Hero() {
 
         {/* Tagline Container at the top */}
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-6 text-center">
-    <p
-  className="text-2xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg"
-  style={{
-    backgroundImage: "linear-gradient(to right, #B5843E, #FFD700, #D19B53)",
-    WebkitTextFillColor: "transparent",
-    WebkitBackgroundClip: "text",
-    textShadow: "0px 0px 12px rgba(255, 223, 0, 0.8)",
-  }}
->
-  From Farm to Globe
-</p>
+          <p
+            className="text-white text-3xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg whitespace-nowrap"
+            style={{
+              // The `font-dancing-script` class already handles the cursive style, so you can keep it simple here.
+              // To make it bright white and single-line, we use `text-white` and `whitespace-nowrap`.
+              // The `style` attribute is no longer needed since Tailwind can handle it.
+            }}
+          >
+            From Farm to Globe
+          </p>
         </div>
 
         {/* Dots Indicator */}
@@ -83,15 +82,15 @@ export default function Hero() {
         </div>
 
         {/* WhatsApp Floating Button */}
-   <a
-  href={whatsappLink}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition z-50 flex items-center space-x-2 animate-pulse"
->
-  <FaWhatsapp size={28} />
-  <span className="text-sm font-semibold pr-2">Chat Now</span>
-</a>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition z-50 flex items-center space-x-2 animate-pulse"
+        >
+          <FaWhatsapp size={28} />
+          <span className="text-sm font-semibold pr-2">Chat Now</span>
+        </a>
       </div>
 
       {/* WHAT WE DO SECTION */}
