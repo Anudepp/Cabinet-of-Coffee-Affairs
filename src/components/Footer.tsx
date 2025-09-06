@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
 
             {/* Products - MODIFIED HERE */}
-            <div className="flex gap-4 border-t border-gray-600 pt-4 md:border-t-0 md:pt-0 md:border-l md:pl-6">
+            <div className="hidden md:flex gap-4 border-t border-gray-600 pt-4 md:border-t-0 md:pt-0 md:border-l md:pl-6">
               <Link to="/products" className="text-gray-300 hover:text-white">Arabica Premium</Link>
               <Link to="/products" className="text-gray-300 hover:text-white">Robusta Select</Link>
             </div>
