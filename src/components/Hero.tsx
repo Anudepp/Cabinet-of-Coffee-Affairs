@@ -58,11 +58,6 @@ export default function Hero() {
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-6 text-center">
           <p
             className="text-white text-3xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg whitespace-nowrap"
-            style={{
-              // The `font-dancing-script` class already handles the cursive style, so you can keep it simple here.
-              // To make it bright white and single-line, we use `text-white` and `whitespace-nowrap`.
-              // The `style` attribute is no longer needed since Tailwind can handle it.
-            }}
           >
             From Farm to Globe
           </p>
