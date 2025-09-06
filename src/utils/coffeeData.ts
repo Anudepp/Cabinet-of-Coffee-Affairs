@@ -23,7 +23,7 @@ export const coffeeCategories: CoffeeCategory[] = [
     "type": "Arabica",
     "products": [
       {
-        "id": 7,
+        "id": 1,
         "name": " Cherry AA",
         "type": "Arabica",
         "process": "Unwashed",
@@ -37,7 +37,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-aa.jpg"
       },
       {
-        "id": 8,
+        "id": 2,
         "name": " Cherry A",
         "type": "Arabica",
         "process": "Unwashed",
@@ -51,7 +51,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-a.jpg"
       },
       {
-        "id": 9,
+        "id": 3,
         "name": " Cherry AB",
         "type": "Arabica",
         "process": "Unwashed",
@@ -65,7 +65,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-ab.jpg"
       },
       {
-        "id": 10,
+        "id": 4,
         "name": " Cherry PB",
         "type": "Arabica",
         "process": "Unwashed",
@@ -79,7 +79,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Unwashed/arabica-cherry-pb.jpg"
       },
       {
-        "id": 11,
+        "id": 5,
         "name": " Cherry C",
         "type": "Arabica",
         "process": "Unwashed",
@@ -99,7 +99,7 @@ export const coffeeCategories: CoffeeCategory[] = [
     "type": "Arabica",
     "products": [
       {
-        "id": 1,
+        "id": 6,
         "name": "Mysore Nuggets",
         "type": "Arabica",
         "process": "Washed",
@@ -111,7 +111,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Washed/mysore-nuggets.jpg"
       },
       {
-        "id": 2,
+        "id": 7,
         "name": "Plantation AA",
         "type": "Arabica",
         "process": "Washed",
@@ -124,7 +124,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Washed/plantation-aa.jpg"
       },
       {
-        "id": 3,
+        "id": 8,
         "name": "Plantation A",
         "type": "Arabica",
         "process": "Washed",
@@ -138,7 +138,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Washed/plantation-a.jpg"
       },
       {
-        "id": 4,
+        "id": 9,
         "name": "Plantation B",
         "type": "Arabica",
         "process": "Washed",
@@ -152,7 +152,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Washed/plantation-b.jpg"
       },
       {
-        "id": 5,
+        "id": 10,
         "name": "Plantation PB",
         "type": "Arabica",
         "process": "Washed",
@@ -166,7 +166,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Arabica/Washed/plantation-pb.jpg"
       },
       {
-        "id": 6,
+        "id": 11,
         "name": "Plantation C",
         "type": "Arabica",
         "process": "Washed",
@@ -180,11 +180,87 @@ export const coffeeCategories: CoffeeCategory[] = [
     ]
   },
   {
-    "title": "Washed Robusta",
+    "title": "Unwashed Robusta",
     "type": "Robusta",
     "products": [
       {
         "id": 12,
+        "name": "Cherry AAA",
+        "type": "Robusta",
+        "process": "Unwashed",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 19 ( 7.50mm )",
+        "FlavorProfile": [
+          "dark chocolate",
+          "nutty",
+          "spice notes"
+        ],
+        "image": "/Beans/Robusta/Unwashed/cherry-aaa.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Cherry AA",
+        "type": "Robusta",
+        "process": "Unwashed",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 18 ( 7.10mm )",
+        "FlavorProfile": [
+          "earthy",
+          "nutty",
+          "dark cocoa"
+        ],
+        "image": "/Beans/Robusta/Unwashed/cherry-aa.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Cherry A",
+        "type": "Robusta",
+        "process": "Unwashed",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 17 ( 6.65mm )",
+        "FlavorProfile": [
+          "woody",
+          "mild spiciness"
+        ],
+        "image": "/Beans/Robusta/Unwashed/cherry-a.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Cherry AB",
+        "type": "Robusta",
+        "process": "Unwashed",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 15 ( 6.00mm )",
+        "FlavorProfile": [
+          "earthy",
+          "woody",
+          "chocolate"
+        ],
+        "image": "/Beans/Robusta/Unwashed/cherry-ab.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Cherry PB",
+        "type": "Robusta",
+        "process": "Unwashed",
+        "Area": "Karnataka, Kerala",
+        "ScreenSize": "Screen Size 13 ( 5.00mm )",
+        "FlavorProfile": [
+          "strong",
+          "bitter",
+          "peppery",
+          "cocoa"
+        ],
+        "image": "/Beans/Robusta/Unwashed/cherry-pb.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Washed Robusta",
+    "type": "Robusta",
+    "products": [
+      {
+        "id": 17,
         "name": " Kaapi Royale",
         "type": "Robusta",
         "process": "Washed",
@@ -199,7 +275,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Robusta/Washed/kaapi-royale.jpg"
       },
       {
-        "id": 13,
+        "id": 18,
         "name": "Parchment AA",
         "type": "Robusta",
         "process": "Washed",
@@ -213,7 +289,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Robusta/Washed/parchment-aa.jpg"
       },
       {
-        "id": 14,
+        "id": 19,
         "name": "Parchment AB",
         "type": "Robusta",
         "process": "Washed",
@@ -227,7 +303,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Robusta/Washed/parchment-ab.jpg"
       },
       {
-        "id": 14,
+        "id": 20,
         "name": "Parchment C",
         "type": "Robusta",
         "process": "Washed",
@@ -241,7 +317,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "image": "/Beans/Robusta/Washed/parchment-c.jpg"
       },
       {
-        "id": 14,
+        "id": 21,
         "name": "Parchment PB",
         "type": "Robusta",
         "process": "Washed",
@@ -252,82 +328,6 @@ export const coffeeCategories: CoffeeCategory[] = [
           "earthy"
         ],
         "image": "/Beans/Robusta/Washed/parchment-pb.jpg"
-      }
-    ]
-  },
-  {
-    "title": "Unwashed Robusta",
-    "type": "Robusta",
-    "products": [
-      {
-        "id": 18,
-        "name": "Cherry AAA",
-        "type": "Robusta",
-        "process": "Unwashed",
-        "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 19 ( 7.50mm )",
-        "FlavorProfile": [
-          "dark chocolate",
-          "nutty",
-          "spice notes"
-        ],
-        "image": "/Beans/Robusta/Unwashed/cherry-aaa.jpg"
-      },
-      {
-        "id": 19,
-        "name": "Cherry AA",
-        "type": "Robusta",
-        "process": "Unwashed",
-        "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 18 ( 7.10mm )",
-        "FlavorProfile": [
-          "earthy",
-          "nutty",
-          "dark cocoa"
-        ],
-        "image": "/Beans/Robusta/Unwashed/cherry-aa.jpg"
-      },
-      {
-        "id": 18,
-        "name": "Cherry A",
-        "type": "Robusta",
-        "process": "Unwashed",
-        "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 17 ( 6.65mm )",
-        "FlavorProfile": [
-          "woody",
-          "mild spiciness"
-        ],
-        "image": "/Beans/Robusta/Unwashed/cherry-a.jpg"
-      },
-      {
-        "id": 18,
-        "name": "Cherry AB",
-        "type": "Robusta",
-        "process": "Unwashed",
-        "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 15 ( 6.00mm )",
-        "FlavorProfile": [
-          "earthy",
-          "woody",
-          "chocolate"
-        ],
-        "image": "/Beans/Robusta/Unwashed/cherry-ab.jpg"
-      },
-      {
-        "id": 18,
-        "name": "Cherry PB",
-        "type": "Robusta",
-        "process": "Unwashed",
-        "Area": "Karnataka, Kerala",
-        "ScreenSize": "Screen Size 13 ( 5.00mm )",
-        "FlavorProfile": [
-          "strong",
-          "bitter",
-          "peppery",
-          "cocoa"
-        ],
-        "image": "/Beans/Robusta/Unwashed/cherry-pb.jpg"
       }
     ]
   }
