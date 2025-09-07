@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { motion } from "framer-motion";
 import WhatsAppButton from "./WhatsAppButton";
 
-const images = ["/HeroImage1.jpeg", "/HeroImage2.jpeg", "/HeroImage3.jpeg"];
+const images = ["/HeroImage1.avif", "/HeroImage2.avif", "/HeroImage3.avif"];
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
