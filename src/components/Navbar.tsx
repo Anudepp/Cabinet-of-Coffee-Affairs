@@ -19,7 +19,7 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate("/")}>
             <img
-              src="/logo.png"
+              src="/logo.avif"
               alt="Georges Coffee Logo"
               className="h-20 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
