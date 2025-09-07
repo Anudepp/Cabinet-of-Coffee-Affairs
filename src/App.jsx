@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Hero";
+import Home from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Products from "./components/Products.jsx";
-import Contact from "./components/Contact";
-import ScrollToTop from "./components/ScrollToTop";
+import Contact from "./components/Contact.jsx";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 function App() {
   return (
