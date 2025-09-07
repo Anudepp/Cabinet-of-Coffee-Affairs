@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
-import { coffeeCategories, CoffeeProduct } from "../utils/coffeeData";
+import { coffeeCategories } from "../utils/coffeeData";
 import WhatsAppButton from "./WhatsAppButton";
 
 export default function Products() {
-  const [selectedProduct, setSelectedProduct] = useState<CoffeeProduct | null>(
-    null
-  );
-  const [activeTab, setActiveTab] = useState<"Arabica" | "Robusta">("Arabica");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeTab, setActiveTab] = useState("Arabica");
 
   const filteredCategories = coffeeCategories.filter(
     (cat) => cat.type === activeTab
@@ -31,7 +29,7 @@ export default function Products() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  onClick={() => setActiveTab(tab as "Arabica" | "Robusta")}
+                  onClick={() => setActiveTab(tab)}
                   className={`relative px-8 py-3 mx-2 text-lg font-poppins font-medium rounded-full transition-all duration-300 overflow-hidden group
                     ${
                       activeTab === tab
@@ -198,7 +196,7 @@ export default function Products() {
           </motion.div>
         )}
       </AnimatePresence>
-       <WhatsAppButton />
+      <WhatsAppButton />
       <Footer />
     </>
   );
