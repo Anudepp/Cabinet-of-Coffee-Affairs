@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Footer from "./Footer";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import WhatsAppButton from "./WhatsAppButton";
 
 const images = ["/HeroImage1.avif", "/HeroImage2.avif", "/HeroImage3.avif"];
@@ -8,11 +8,10 @@ const images = ["/HeroImage1.avif", "/HeroImage2.avif", "/HeroImage3.avif"];
 export default function Hero() {
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(
       () => setCurrent((prev) => (prev + 1) % images.length),
-      2000
+      3000 
     );
     return () => clearInterval(interval);
   }, []);
@@ -25,40 +24,44 @@ export default function Hero() {
         id="home"
         className="relative w-full h-screen bg-black pt-24 overflow-hidden"
       >
-        {/* Carousel Images */}
-        {images.map((img, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === current ? 1 : 0 }}
-            transition={{ duration: 1.5 }}
-            className={`absolute inset-0 flex items-center justify-center`}
-          >
-            <img
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear transform-gpu"
-              style={{
-                transform: index === current ? "scale(1.05)" : "scale(1)",
-              }}
-            />
-          </motion.div>
-        ))}
+        <AnimatePresence>
+          {images.map(
+            (img, index) =>
+              index === current && ( 
+                <motion.div
+                  key={img}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  className={`absolute inset-0 flex items-center justify-center`}
+                >
+                  <img
+                    src={img}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear transform-gpu"
+                    style={{
+                      transform: "scale(1.05)",
+                    }}
+                    loading="eager"
+                  />
+                </motion.div>
+              )
+          )}
+        </AnimatePresence>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60 pointer-events-none" />
 
         {/* Tagline Container at the top */}
-        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 p-6 text-center">
-          <p
-            className="text-white text-3xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg whitespace-nowrap"
-          >
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 p-6 text-center">
+          <p className="text-white text-3xl sm:text-4xl md:text-5xl font-dancing-script italic font-semibold drop-shadow-lg whitespace-nowrap">
             From Farm to Globe
           </p>
         </div>
 
         {/* Dots Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
           {images.map((_, index) => (
             <button
               key={index}
@@ -66,11 +69,10 @@ export default function Hero() {
               className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                 index === current ? "bg-[#F0EAD6]" : "bg-white/50 hover:bg-white"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-        
-        {/* Removed WhatsApp Floating Button */}
       </div>
 
       {/* WHAT WE DO SECTION */}
@@ -78,7 +80,7 @@ export default function Hero() {
         id="what-we-do"
         className="relative w-full bg-gradient-to-b from-[#4b2e2e] to-[#f7e9d7] py-20 px-6 md:px-20"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4b2e2e]/80 to-transparent"></div>
+        {/* The gradient overlay is moved to the section directly */}
         <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-12">
           {/* Intro Text */}
           <div className="text-white">
@@ -95,7 +97,11 @@ export default function Hero() {
               world markets.
             </p>
             <p className="text-lg md:text-xl leading-relaxed mb-6">
-              As merchant exporters, we bridge the gap between trusted growers and discerning buyers worldwide. We ensure competitive pricing while maintaining uncompromised quality in every deal.Driven by integrity and a passion for excellence, we are committed to positioning Indian coffee as a trusted and sought-after choice in global markets.
+              As merchant exporters, we bridge the gap between trusted growers
+              and discerning buyers worldwide. We ensure competitive pricing while
+              maintaining uncompromised quality in every deal. Driven by integrity
+              and a passion for excellence, we are committed to positioning Indian
+              coffee as a trusted and sought-after choice in global markets.
             </p>
           </div>
 
