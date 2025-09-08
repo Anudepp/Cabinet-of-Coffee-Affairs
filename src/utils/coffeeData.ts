@@ -33,7 +33,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Earthy",
           "Chocolatey"
         ],
-        "image": "/Beans/Arabica/Unwashed/arabica-cherry-aa.jpg"
+        "image": "/Beans/Arabica/Unwashed/arabica-cherry-aa.avif"
       },
       {
         "id": 2,
@@ -47,7 +47,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Fruity",
           "Floral"
         ],
-        "image": "/Beans/Arabica/Unwashed/arabica-cherry-a.jpg"
+        "image": "/Beans/Arabica/Unwashed/arabica-cherry-a.avif"
       },
       {
         "id": 3,
@@ -61,7 +61,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Spice",
           "Mild fruit"
         ],
-        "image": "/Beans/Arabica/Unwashed/arabica-cherry-ab.jpg"
+        "image": "/Beans/Arabica/Unwashed/arabica-cherry-ab.avif"
       },
       {
         "id": 4,
@@ -75,7 +75,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Dried fruit",
           "Floral"
         ],
-        "image": "/Beans/Arabica/Unwashed/arabica-cherry-pb.jpg"
+        "image": "/Beans/Arabica/Unwashed/arabica-cherry-pb.avif"
       },
       {
         "id": 5,
@@ -89,7 +89,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Mild chocolatey",
           "Woody"
         ],
-        "image": "/Beans/Arabica/Unwashed/arabica-cherry-c.jpg"
+        "image": "/Beans/Arabica/Unwashed/arabica-cherry-c.avif"
       }
     ]
   },
@@ -107,7 +107,7 @@ export const coffeeCategories: CoffeeCategory[] = [
         "FlavorProfile": [
           "Nutty", "Woody", "Earthy notes"
         ],
-        "image": "/Beans/Arabica/Washed/mysore-nuggets.jpg"
+        "image": "/Beans/Arabica/Washed/mysore-nuggets.avif"
       },
       {
         "id": 7,
@@ -120,7 +120,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Fruity",
           "Floral"
         ],
-        "image": "/Beans/Arabica/Washed/plantation-aa.jpg"
+        "image": "/Beans/Arabica/Washed/plantation-aa.avif"
       },
       {
         "id": 8,
@@ -134,7 +134,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Indian spice",
           "Chocolatey"
         ],
-        "image": "/Beans/Arabica/Washed/plantation-a.jpg"
+        "image": "/Beans/Arabica/Washed/plantation-a.avif"
       },
       {
         "id": 9,
@@ -148,7 +148,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Caramel",
           "Nutty"
         ],
-        "image": "/Beans/Arabica/Washed/plantation-b.jpg"
+        "image": "/Beans/Arabica/Washed/plantation-b.avif"
       },
       {
         "id": 10,
@@ -162,7 +162,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Nutty",
           "Indian spices"
         ],
-        "image": "/Beans/Arabica/Washed/plantation-pb.jpg"
+        "image": "/Beans/Arabica/Washed/plantation-pb.avif"
       },
       {
         "id": 11,
@@ -175,7 +175,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Chocolatey",
           "Nutty"
         ],
-        "image": "/Beans/Arabica/Washed/plantation-c.jpg"
+        "image": "/Beans/Arabica/Washed/plantation-c.avif"
       }
     ]
   },
@@ -195,7 +195,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Nutty",
           "Spice notes"
         ],
-        "image": "/Beans/Robusta/Unwashed/cherry-aaa.jpg"
+        "image": "/Beans/Robusta/Unwashed/cherry-aaa.avif"
       },
       {
         "id": 13,
@@ -209,7 +209,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Nutty",
           "Dark cocoa"
         ],
-        "image": "/Beans/Robusta/Unwashed/cherry-aa.jpg"
+        "image": "/Beans/Robusta/Unwashed/cherry-aa.avif"
       },
       {
         "id": 14,
@@ -222,7 +222,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Woody",
           "Mild spiciness"
         ],
-        "image": "/Beans/Robusta/Unwashed/cherry-a.jpg"
+        "image": "/Beans/Robusta/Unwashed/cherry-a.avif"
       },
       {
         "id": 15,
@@ -236,7 +236,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Woody",
           "Chocolatey"
         ],
-        "image": "/Beans/Robusta/Unwashed/cherry-ab.jpg"
+        "image": "/Beans/Robusta/Unwashed/cherry-ab.avif"
       },
       {
         "id": 16,
@@ -251,7 +251,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Peppery",
           "Cocoa"
         ],
-        "image": "/Beans/Robusta/Unwashed/cherry-pb.jpg"
+        "image": "/Beans/Robusta/Unwashed/cherry-pb.avif"
       }
     ]
   },
@@ -272,7 +272,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Woody",
           "Earthy"
         ],
-        "image": "/Beans/Robusta/Washed/kaapi-royale.jpg"
+        "image": "/Beans/Robusta/Washed/kaapi-royale.avif"
       },
       {
         "id": 18,
@@ -286,7 +286,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Nutty",
           "Mild spice"
         ],
-        "image": "/Beans/Robusta/Washed/parchment-aa.jpg"
+        "image": "/Beans/Robusta/Washed/parchment-aa.avif"
       },
       {
         "id": 19,
@@ -300,7 +300,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Woody",
           "Nutty tones"
         ],
-        "image": "/Beans/Robusta/Washed/parchment-ab.jpg"
+        "image": "/Beans/Robusta/Washed/parchment-ab.avif"
       },
       {
         "id": 20,
@@ -314,7 +314,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Woody",
           "Earthy"
         ],
-        "image": "/Beans/Robusta/Washed/parchment-c.jpg"
+        "image": "/Beans/Robusta/Washed/parchment-c.avif"
       },
       {
         "id": 21,
@@ -327,7 +327,7 @@ export const coffeeCategories: CoffeeCategory[] = [
           "Bitter-sweet cocoa",
           "Earthy"
         ],
-        "image": "/Beans/Robusta/Washed/parchment-pb.jpg"
+        "image": "/Beans/Robusta/Washed/parchment-pb.avif"
       }
     ]
   }
