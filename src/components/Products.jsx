@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
 import { coffeeCategories } from "../utils/coffeeData";
@@ -8,9 +8,10 @@ export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeTab, setActiveTab] = useState("Arabica");
 
-  const filteredCategories = coffeeCategories.filter(
-    (cat) => cat.type === activeTab
-  );
+  // Use useMemo to prevent re-calculating filteredCategories on every render.
+  const filteredCategories = useMemo(() => {
+    return coffeeCategories.filter((cat) => cat.type === activeTab);
+  }, [activeTab]); // This will only re-run when activeTab changes.
 
   return (
     <>
