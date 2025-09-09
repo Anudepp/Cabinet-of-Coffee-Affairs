@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import { AnimatePresence, motion } from "framer-motion";
