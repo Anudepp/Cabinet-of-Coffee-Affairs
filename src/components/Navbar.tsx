@@ -1,11 +1,12 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Get the current location object
 
   const handleNavigate = (path) => {
     navigate(path);
@@ -41,10 +42,16 @@ export default function Navbar() {
                 <div key={item.name} className="relative group">
                   <button
                     onClick={() => handleNavigate(item.path)}
-                    className="text-xl font-poppins font-bold transition-all duration-300 hover:text-[#B5843E] relative overflow-hidden"
+                    // Conditionally apply a class based on the current path
+                    className={`text-xl font-poppins font-bold transition-all duration-300 relative overflow-hidden
+                      ${location.pathname === item.path ? "text-[#B5843E]" : "hover:text-[#B5843E]"}
+                    `}
                   >
                     {item.name}
-                    <span className="absolute left-0 bottom-0 w-full h-[3px] bg-[#B5843E] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+                    {/* The underline will be visible on hover AND when the link is active */}
+                    <span className={`absolute left-0 bottom-0 w-full h-[3px] bg-[#B5843E] transition-transform duration-300 origin-left
+                      ${location.pathname === item.path ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
+                    `}></span>
                   </button>
                 </div>
               ))}
@@ -86,7 +93,7 @@ export default function Navbar() {
             >
               <div className="flex flex-col items-center gap-6 py-5 bg-[#efeeeb]">
                 {[
-                { name: "Home", path: "/" },
+                  { name: "Home", path: "/" },
                   { name: "About", path: "/about" },
                   { name: "Products", path: "/products" },
                   { name: "Contact", path: "/contact" },
@@ -97,7 +104,10 @@ export default function Navbar() {
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.05 * index, duration: 0.2 }}
-                    className="text-lg font-poppins font-bold text-[#2C1D14] hover:text-[#B5843E] transition-colors"
+                    // Conditionally apply a class for mobile menu
+                    className={`text-lg font-poppins font-bold transition-colors
+                      ${location.pathname === item.path ? "text-[#B5843E]" : "text-[#2C1D14] hover:text-[#B5843E]"}
+                    `}
                   >
                     {item.name}
                   </motion.button>
