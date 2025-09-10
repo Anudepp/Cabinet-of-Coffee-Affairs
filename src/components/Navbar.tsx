@@ -1,16 +1,37 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // Get the current location object
+  const location = useLocation();
 
-  const handleNavigate = (path) => {
-    navigate(path);
-    setIsMenuOpen(false);
+  // This function handles both navigation and scrolling
+  const handleNavClick = (path) => {
+    // Check if the user is already on the same page
+    if (location.pathname === path) {
+      // If yes, we handle the scroll to top
+      
+      // Close the mobile menu first, to ensure the overlay is removed
+      // This is crucial for the mobile fix.
+      setIsMenuOpen(false);
+
+      // We use a small delay with setTimeout to give the menu animation time to complete
+      // before the scroll action is initiated. This prevents a race condition on mobile.
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, 150); // 150ms is a good, reliable delay
+      
+    } else {
+      // If no, navigate to the new page
+      navigate(path);
+      setIsMenuOpen(false); // Close the mobile menu
+    }
   };
 
   return (
@@ -18,7 +39,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-24">
           {/* Logo Section */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate("/")}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick("/")}>
             <img
               src="/logo.avif"
               alt="Georges Coffee Logo"
@@ -41,14 +62,12 @@ export default function Navbar() {
               ].map((item) => (
                 <div key={item.name} className="relative group">
                   <button
-                    onClick={() => handleNavigate(item.path)}
-                    // Conditionally apply a class based on the current path
+                    onClick={() => handleNavClick(item.path)}
                     className={`text-xl font-poppins font-bold transition-all duration-300 relative overflow-hidden
                       ${location.pathname === item.path ? "text-[#B5843E]" : "hover:text-[#B5843E]"}
                     `}
                   >
                     {item.name}
-                    {/* The underline will be visible on hover AND when the link is active */}
                     <span className={`absolute left-0 bottom-0 w-full h-[3px] bg-[#B5843E] transition-transform duration-300 origin-left
                       ${location.pathname === item.path ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
                     `}></span>
@@ -100,11 +119,10 @@ export default function Navbar() {
                 ].map((item, index) => (
                   <motion.button
                     key={item.name}
-                    onClick={() => handleNavigate(item.path)}
+                    onClick={() => handleNavClick(item.path)}
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.05 * index, duration: 0.2 }}
-                    // Conditionally apply a class for mobile menu
                     className={`text-lg font-poppins font-bold transition-colors
                       ${location.pathname === item.path ? "text-[#B5843E]" : "text-[#2C1D14] hover:text-[#B5843E]"}
                     `}
