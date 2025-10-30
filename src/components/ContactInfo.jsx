@@ -46,9 +46,16 @@ export default function ContactInfo({ isInView }) {
           <div className="flex flex-col items-center text-center space-y-2 col-span-2 md:col-span-1">
             <MapPin className="w-8 h-8 text-[#B5843E] flex-shrink-0" />
             <h4 className="font-semibold text-[#F0EAD6]">Address</h4>
-            <p>Silver Spring Residency,</p>
-            <p>HMT Colony Rd, Alwal, Secunderabad,</p>
-            <p>Telangana 500010, India</p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=silver+spring+residency,+HMT+Colony+Rd,+Alwal,+Secunderabad,+Telangana+500010,+India"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#F0EAD6] hover:text-[#B5843E] transition-colors duration-300"
+            >
+              <p>silver spring residency,</p>
+              <p>HMT Colony Rd, Alwal, Secunderabad,</p>
+              <p>Telangana 500010, India</p>
+            </a>
           </div>
         </div>
       </div>
